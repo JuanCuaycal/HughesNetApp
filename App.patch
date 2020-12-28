@@ -1,0 +1,23 @@
+Index: app/src/main/java/com/hughesnet/hughesnetapp/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/hughesnet/hughesnetapp/MainActivity.java	(date 1609175477994)
++++ app/src/main/java/com/hughesnet/hughesnetapp/MainActivity.java	(date 1609175477994)
+@@ -0,0 +1,14 @@
++package com.hughesnet.hughesnetapp;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class MainActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_main);
++    }
++}
+\ No newline at end of file
