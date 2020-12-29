@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HughesNetApp</string>
+    <string name="LOGIN">Login</string>
+    <string name="REGISTRARSE">Registrarse</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="Correo">Correo</string>
 </resources>
