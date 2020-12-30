@@ -6,8 +6,6 @@
     <string name="Correo">Correo</string>
 
 
-
-
     <string-array name="Tarjetero">
         <item>Asesor1</item>
         <item>Asesor2</item>
@@ -25,8 +23,6 @@
         <item>Description 5</item>
 
     </string-array>
-
-
 
 
 </resources>
