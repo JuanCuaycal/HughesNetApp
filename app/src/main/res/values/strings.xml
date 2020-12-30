@@ -4,4 +4,29 @@
     <string name="REGISTRARSE">Registrarse</string>
     <string name="Contraseña">Contraseña</string>
     <string name="Correo">Correo</string>
+
+
+
+
+    <string-array name="Tarjetero">
+        <item>Asesor1</item>
+        <item>Asesor2</item>
+        <item>Asesor3</item>
+        <item>Asesor4</item>
+        <item>Asesor5</item>
+    </string-array>
+
+
+    <string-array name="Descripcion">
+        <item>Description 1</item>
+        <item>Description 2</item>
+        <item>Description 3</item>
+        <item>Description 4</item>
+        <item>Description 5</item>
+
+    </string-array>
+
+
+
+
 </resources>
