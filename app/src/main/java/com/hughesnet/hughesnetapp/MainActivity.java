@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent intent=new Intent(v2.getContext(),Formulario.class);
+                Intent intent=new Intent(v2.getContext(),Reclutado.class);
                 startActivityForResult(intent,0);
             }
         });

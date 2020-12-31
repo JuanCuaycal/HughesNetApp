@@ -27,13 +27,19 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="386dp"
-        android:layout_height="668dp"
-        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:foregroundGravity="center"
+        android:scrollbarSize="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -41,21 +47,48 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre" />
+
             <EditText
                 android:id="@+id/editTextTextPersonName6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Provincia" />
+
+            <Spinner
+                android:id="@+id/spinner_ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección" />
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
@@ -64,6 +97,12 @@
                 android:ems="10"
                 android:inputType="textEmailAddress" />
 
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Celular" />
+
             <EditText
                 android:id="@+id/editTextPhone"
                 android:layout_width="match_parent"
@@ -71,23 +110,131 @@
                 android:ems="10"
                 android:inputType="phone" />
 
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Referencia" />
+
             <EditText
-                android:id="@+id/editTextDate2"
+                android:id="@+id/editTextTextPersonName11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="date" />
+                android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Pregunta 1" />
 
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="307dp" />
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SI" />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NO" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 2" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SI" />
+
+                <RadioButton
+                    android:id="@+id/radioButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NO" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 3" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SI" />
+
+                <RadioButton
+                    android:id="@+id/radioButton14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NO" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 4" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Otros" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SI" />
+
+                <RadioButton
+                    android:id="@+id/radioButton16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NO" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENVIAR" />
 
         </LinearLayout>
     </ScrollView>
