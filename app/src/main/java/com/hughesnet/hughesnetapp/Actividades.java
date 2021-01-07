@@ -4,13 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.hughesnet.hughesnetapp.api.ApiAsesor;
+import com.hughesnet.hughesnetapp.api.ApiClient;
+import com.hughesnet.hughesnetapp.model.Asesor;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Actividades extends AppCompatActivity {
-
+    private ApiAsesor apiInterface;
+    private List<Asesor> asesor;
     RecyclerView recyclerView;
     String s1[],s2[];
     int images[]={R.drawable.mt,R.drawable.fs,R.drawable.hug,R.drawable.cm,R.drawable.t};
+
+    String tip="Fruta Golosa";
+
+    Call<List<Asesor>> call = apiInterface.getAsesores("https://frutagolosa.com/FrutaGolosaApp/ArreglosEnApp.php?t="+tip+"&k=121523");
 
 
 

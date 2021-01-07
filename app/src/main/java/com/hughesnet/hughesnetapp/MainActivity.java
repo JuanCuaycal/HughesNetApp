@@ -15,11 +15,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button bt1=findViewById(R.id.btn_loggin);
         Button bt2=findViewById(R.id.btn_registro);
+        Button bt3=findViewById(R.id.btn_registro2);
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(),Actividades.class);
+                Intent intent=new Intent(view.getContext(),Modulos.class);
                 startActivityForResult(intent,0);
             }
         });
@@ -28,7 +29,15 @@ public class MainActivity extends AppCompatActivity {
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v2) {
-                Intent intent=new Intent(v2.getContext(),Reclutado.class);
+                Intent intent=new Intent(v2.getContext(),valid_loggin.class);
+                startActivityForResult(intent,0);
+            }
+        });
+
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),Actividades.class);
                 startActivityForResult(intent,0);
             }
         });

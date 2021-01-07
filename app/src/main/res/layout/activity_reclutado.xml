@@ -16,14 +16,32 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:text="Formulario"
-        android:textColor="#FFFF"
+        android:text="REFERIDO"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/button_rounded"
+        android:text="AGREGAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -31,27 +49,28 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
         android:foregroundGravity="center"
         android:scrollbarSize="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre" />
+                android:text="Nombre"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName6"
@@ -64,7 +83,9 @@
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Apellido" />
+                android:text="Apellido"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName7"
@@ -73,11 +94,29 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Celular"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone" />
+
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Provincia" />
+                android:text="Provincia"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner_ciudad"
@@ -88,33 +127,28 @@
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dirección" />
-
-            <EditText
-                android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:text="Dirección"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/id_long"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Celular" />
+                android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/editTextPhone"
+            <TextView
+                android:id="@+id/id_lat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="phone" />
+                android:layout_height="wrap_content" />
+
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Referencia" />
+                android:text="Observaciones"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName11"
@@ -127,114 +161,46 @@
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pregunta 1" />
+                android:text="ESTADO"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkBox7"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="Recien Contactado" />
 
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SI" />
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Envio Propuesta" />
 
-                <RadioButton
-                    android:id="@+id/radioButton6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO" />
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Por Confirmar" />
 
-            </RadioGroup>
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Listo Pago" />
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instalado" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/id_json"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pregunta 2" />
+                android:text="TextView" />
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SI" />
-
-                <RadioButton
-                    android:id="@+id/radioButton8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO" />
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pregunta 3" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SI" />
-
-                <RadioButton
-                    android:id="@+id/radioButton14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO" />
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pregunta 4" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Otros" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="SI" />
-
-                <RadioButton
-                    android:id="@+id/radioButton16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO" />
-            </RadioGroup>
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ENVIAR" />
 
         </LinearLayout>
     </ScrollView>
