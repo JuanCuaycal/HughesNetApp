@@ -4,18 +4,38 @@ import com.google.gson.annotations.SerializedName;
 
 public class Asesor {
 
-    @SerializedName("username")
-    private String username;
+    @SerializedName("name")
+    private String name;
 
-    @SerializedName("firstname")
-    private String firstname;
+    @SerializedName("surname")
+    private String surname;
 
-    @SerializedName("phone1")
-    private String phone1;
+    public String getName() {
+        return name;
+    }
 
-    public String getUsername() { return username; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getFirstname() { return firstname; }
+    public String getSurname() {
+        return surname;
+    }
 
-    public String getPhone1() { return phone1; }
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @SerializedName("phone")
+    private String phone;
+
+
 }

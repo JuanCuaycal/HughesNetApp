@@ -46,12 +46,9 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
         String x;
 
 
-        holder.txtInformacion.setText(asesores.get(position).getUsername());
+        holder.txtInformacion.setText(asesores.get(position).getSurname());
+        holder.txtdescription.setText(asesores.get(position).getName());
 
-        String a=asesores.get(position).getFirstname().substring(0,1);
-        holder.etiNombre.setText(a.substring(1).toLowerCase());
-        holder.etiNombre2.setText(a.toUpperCase()+asesores.get(position).getFirstname().substring(1));
-        String ax=asesores.get(position).getFirstname().toLowerCase().replace(" ","").trim();
 
        // Glide.with(holder.foto.getContext()).asBitmap().load("https://frutagolosa.com/FrutaGolosaApp/Administrador/images/" +ax+".jpg").transition(BitmapTransitionOptions.withCrossFade(1000)).diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true).transform(new CenterCrop(),new RoundedCorners(10)).apply(new RequestOptions().override(270,270)).into(holder.foto).waitForLayout();
 
@@ -79,7 +76,7 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
 
 
         CardView cardView;
-        TextView etiNombre,etiNombre2,txtInformacion;
+        TextView etiNombre,etiNombre2,txtInformacion,txtdescription,txtesatado;
         ImageView foto;
 
 
@@ -90,8 +87,14 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
             CountDownTimer timer;
 
             txtInformacion= (TextView) itemView.findViewById(R.id.tarjetero_txt);
-            etiNombre=(TextView) itemView.findViewById(R.id.descripcion_txt);
+            etiNombre=(TextView) itemView.findViewById(R.id.textView13);
             etiNombre2=(TextView) itemView.findViewById(R.id.textView12);
+            txtdescription= (TextView) itemView.findViewById(R.id.descripcion_txt);
+            txtesatado= (TextView) itemView.findViewById(R.id.id_estado);
+
+
+
+
 
 
 
