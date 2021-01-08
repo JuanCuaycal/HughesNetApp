@@ -54,7 +54,7 @@ public class StatusReferidosActivity extends AppCompatActivity {
         String tip=Estado;
         Toast.makeText(getApplicationContext(),tip,Toast.LENGTH_LONG).show();
 
-        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaAsesores.php?t="+tip);
+        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaClient.php?t="+tip);
         call.enqueue(new Callback<List<Asesor>>() {
             @Override
             public void onResponse(Call<List<Asesor>> call, Response<List<Asesor>> response) {

@@ -22,55 +22,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:text="Habilidades"
-                app:layout_constraintEnd_toStartOf="@+id/textView13"
-                app:layout_constraintStart_toEndOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:text="Grado"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="60dp"
-                android:text="Porcentaje"
-                app:layout_constraintStart_toEndOf="@+id/myImageView"
-                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
-
-            <TextView
-
-                android:id="@+id/tarjetero_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="45dp"
-                android:layout_marginRight="45dp"
-                android:text="Tarjetero"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/descripcion_txt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/myImageView"
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="120dp"
+                android:layout_height="129dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/mapsblack"
+                tools:layout_editor_absoluteX="1dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/id_actitud"
+                android:layout_width="43dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="23dp"
+                android:gravity="center"
+                android:text="100%"
+                app:layout_constraintEnd_toStartOf="@+id/id_aptitud"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toEndOf="@+id/id_porcentaje"
+                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
 
             <TextView
                 android:id="@+id/descripcion_txt"
@@ -78,17 +51,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
+                android:gravity="center"
                 android:text="Descripcion"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/myImageView"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/tarjetero_txt" />
 
             <TextView
-                android:id="@+id/id_estado"
+
+                android:id="@+id/tarjetero_txt"
+                android:layout_width="85dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
+                android:gravity="center"
+                android:text="Tarjetero"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/id_aptitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginRight="44dp"
+                android:gravity="center"
+                android:text="100%"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginRight="28dp"
+                android:gravity="center"
+                android:text="Aptitud"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_aptitud" />
+
+            <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
@@ -96,19 +112,49 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
-                android:text="Estado"
+                android:gravity="center"
+                android:text="Actitud"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/myImageView"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/id_actitud" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Promedio"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/id_porcentaje" />
+
+            <TextView
+                android:id="@+id/id_porcentaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="100%"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
 
-            <ImageView
-                android:id="@+id/myImageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/id_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
+                android:text="Estado"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/descripcion_txt" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

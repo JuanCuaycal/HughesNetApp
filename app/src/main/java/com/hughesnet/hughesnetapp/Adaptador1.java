@@ -37,7 +37,7 @@ public class Adaptador1 extends RecyclerView.Adapter<Adaptador1.MyViewHoldwer> {
             super(itemView);
             myText1= itemView.findViewById(R.id.tarjetero_txt);
             myText2=itemView.findViewById(R.id.descripcion_txt);
-            myImage=itemView.findViewById(R.id.myImageView);
+            //myImage=itemView.findViewById(R.id.myImageView);
         }
     }
 

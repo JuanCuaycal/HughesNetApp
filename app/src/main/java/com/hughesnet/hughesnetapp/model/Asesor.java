@@ -10,6 +10,12 @@ public class Asesor {
     @SerializedName("surname")
     private String surname;
 
+    @SerializedName("phone")
+    private String phone;
+
+    @SerializedName("address")
+    private String address;
+
     public String getName() {
         return name;
     }
@@ -34,8 +40,11 @@ public class Asesor {
         this.phone = phone;
     }
 
-    @SerializedName("phone")
-    private String phone;
+    public String getAddress() {
+        return address;
+    }
 
-
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }
