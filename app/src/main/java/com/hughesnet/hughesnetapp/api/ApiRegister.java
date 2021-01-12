@@ -1,25 +1,25 @@
 package com.hughesnet.hughesnetapp.api;
 
-import com.hughesnet.hughesnetapp.model.Asesor;
+import retrofit.Callback;
+import retrofit.client.Response;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
+import retrofit.http.POST;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
-import retrofit2.http.Url;
 
 public interface ApiRegister {
 
     @FormUrlEncoded
+    @POST("/register.php")
+    public  void insertadvisor(
 
-
-    @POST("/postRegister.php")
-    public  void registrovalido(
-
-            @Field("z") String z;
-
+            @Field("telefono") String telefono,
+            @Field("nombre") String nombre,
+            @Field("apellido") String apellido,
+            @Field("correo") String correo,
+            @Field("dni") String dni,
+            @Field("password") String password,
+            Callback<Response> callback
     );
 
 
