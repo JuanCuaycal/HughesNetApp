@@ -23,10 +23,11 @@ public class Referidos extends AppCompatActivity {
         Button btn_grafica = findViewById(R.id.btn_grafica2);
 
         Button btntotal = (Button) findViewById(R.id.btn_total);
-        Button btnllamar = (Button) findViewById(R.id.btn_llamar);
-        Button btnvisit = (Button) findViewById(R.id.btn_visit);
+        Button btncontactado = (Button) findViewById(R.id.btn_contactado);
+        Button btnpropuesto=(Button) findViewById(R.id.btn_propuesto);
         Button btnconfirm = (Button) findViewById(R.id.btn_confirm);
         Button btnvendido = (Button) findViewById(R.id.btn_vendidos);
+        Button btninstall = (Button) findViewById(R.id.btn_instalado);
         Button btnnodesean = (Button) findViewById(R.id.btn_no_desean);
 
 
@@ -50,20 +51,20 @@ public class Referidos extends AppCompatActivity {
         });
 
 
-        btnllamar.setOnClickListener(new View.OnClickListener() {
+        btncontactado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
-                intent.putExtra(Estado,"Llamar");
+                intent.putExtra(Estado,"Contactado");
                 startActivityForResult(intent,0);
             }
         });
 
-        btnvisit.setOnClickListener(new View.OnClickListener() {
+        btnpropuesto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
-                intent.putExtra(Estado,"Visitar");
+                intent.putExtra(Estado,"Propuesto");
                 startActivityForResult(intent,0);
             }
         });
@@ -72,7 +73,7 @@ public class Referidos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
-                intent.putExtra(Estado,"Confirmar");
+                intent.putExtra(Estado,"Por Confirmar");
                 startActivityForResult(intent,0);
             }
         });
@@ -86,11 +87,21 @@ public class Referidos extends AppCompatActivity {
             }
         });
 
+        btninstall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
+                intent.putExtra(Estado,"Instalado");
+                startActivityForResult(intent,0);
+
+            }
+        });
+
         btnnodesean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
-                intent.putExtra(Estado,"No");
+                intent.putExtra(Estado,"No le interesa");
                 startActivityForResult(intent,0);
             }
         });

@@ -28,7 +28,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/id_button_reclutar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -73,7 +73,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/id_name_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/id_surname_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -104,7 +104,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/id_phone_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -119,7 +119,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinner_ciudad"
+                android:id="@+id/id_spinner_province_client"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
@@ -151,7 +151,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName11"
+                android:id="@+id/id_observ_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -165,35 +165,47 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:id="@+id/checkBox7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Recien Contactado" />
 
-            <CheckBox
-                android:id="@+id/checkBox8"
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Envio Propuesta" />
+                android:id="@+id/id_radio_group_client">
 
-            <CheckBox
-                android:id="@+id/checkBox9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Por Confirmar" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio1_grupo"
+                    android:text="Contactado" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio2_grupo"
+                    android:text="Propuesto"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio3_grupo"
+                    android:text="Por Confirmar"/>
 
-            <CheckBox
-                android:id="@+id/checkBox10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Listo Pago" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio4_grupo"
+                    android:text="Vendido"/>
 
-            <CheckBox
-                android:id="@+id/checkBox11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Instalado" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio5_grupo"
+                    android:text="Instalado"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio6_grupo"
+                    android:text="No le interesa"/>
+            </RadioGroup>
+
 
             <TextView
                 android:id="@+id/id_json"

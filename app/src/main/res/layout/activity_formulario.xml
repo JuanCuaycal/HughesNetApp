@@ -40,6 +40,20 @@
 
 
             <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Digite el ID del asesor" />
+
+            <EditText
+                android:id="@+id/id_asesor_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone" />
+
+            <TextView
                 android:id="@+id/text_seccion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,8 +70,9 @@
                 android:layout_alignParentRight="false"
                 android:layout_marginTop="5dp"
                 android:button="@null"
+                android:checked="false"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Engache" />
+                android:text="Enganche" />
 
 
             <CheckBox
@@ -92,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
-                android:text="INDAGACIÓN"
+                android:text="INDAGACIÓN>"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -106,7 +121,6 @@
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
                 android:text="Trabajo" />
-
 
             <CheckBox
                 android:id="@+id/check5"
@@ -141,13 +155,12 @@
                 android:text="Poder Adquisitivo" />
 
 
-
             <TextView
                 android:id="@+id/text_seccion3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
-                android:text="PRESENTACIÓN"
+                android:text="PRESENTACIÓN:"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -248,7 +261,7 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Muesra caracteristicas potentes" />
+                android:text="Muestra caracteristicas potentes" />
 
 
             <CheckBox
@@ -363,7 +376,7 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="No discute con el cliente" />
+                android:text="Discute con el cliente" />
 
             <CheckBox
                 android:id="@+id/check25"
@@ -384,7 +397,7 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="No muestra inseguridad" />
+                android:text="Muestra inseguridad" />
 
 
             <CheckBox
@@ -405,7 +418,7 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="No pierde el control de la conversación" />
+                android:text="Pierde el control de la conversación" />
 
 
             <CheckBox
@@ -429,19 +442,19 @@
                 android:text="Comprende claramente las necesidades" />
 
 
-            <CheckBox
-                android:id="@+id/check31"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="false"
-                android:layout_marginTop="5dp"
-                android:button="@null"
-                android:drawableRight="@android:drawable/btn_radio"
-                android:text="Logra indicar claramente el producto" />
+<!--            <CheckBox-->
+<!--                android:id="@+id/check31"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentRight="false"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:button="@null"-->
+<!--                android:drawableRight="@android:drawable/btn_radio"-->
+<!--                android:text="Logra indicar claramente el producto" />-->
 
 
             <Button
-                android:id="@+id/btn_enviar"
+                android:id="@+id/btn_enviar_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ENVIAR"/>

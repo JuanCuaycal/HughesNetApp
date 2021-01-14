@@ -23,6 +23,17 @@
         <item>Description 5</item>
 
     </string-array>
+
+
+
+    <string-array name="Estado">
+        <item>Estado 1</item>
+        <item>Estado 2</item>
+        <item>Estado 3</item>
+        <item>Estado 4</item>
+        <item>Estado 5</item>
+
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -17,23 +17,33 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.hughesnet.hughesnetapp.api.ApiInsertClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 public class Reclutado extends AppCompatActivity {
+    public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/InsertClient";
     TextView mensaje1;
     TextView mensaje2;
     TextView mensaje3;
@@ -44,13 +54,25 @@ public class Reclutado extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reclutado);
+
+        EditText n= findViewById(R.id.id_name_client);
+        EditText a=findViewById(R.id.id_surname_client);
+        EditText p=findViewById(R.id.id_phone_client);
+        Spinner pr=findViewById(R.id.id_spinner_province_client);
+        EditText ob=findViewById(R.id.id_observ_client);
+        RadioGroup grcl=findViewById(R.id.id_radio_group_client);
+
+
+
+
          mensaje1 =  findViewById(R.id.id_long);
          mensaje2 =  findViewById(R.id.id_lat);
-
          mensaje3= findViewById(R.id.id_json);
 
+         Button button_cliente=findViewById(R.id.id_button_reclutar);
 
-        spinner1=findViewById(R.id.spinner_ciudad);
+
+        spinner1=findViewById(R.id.id_spinner_province_client);
         String[] ciudades={"Quito","Guayaquil","Cuenca","Otros"};
 
         ArrayAdapter <String> adapter1= new ArrayAdapter<String>(this, R.layout.spinner_item_forma, ciudades);
@@ -58,6 +80,87 @@ public class Reclutado extends AppCompatActivity {
 
 
         locationStart();
+
+        button_cliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String name=n.getText().toString().trim().replace( " ","");
+                String surname=a.getText().toString().trim().replace( " ","");
+                String phone=p.getText().toString().trim().replace( " ","");
+                String province=pr.getSelectedItem().toString();
+                String address=mensaje2.getText().toString();
+                String observation=ob.getText().toString().trim().replace( " ","");
+                String id_advisor ="1111111";
+
+                   //Select seleccionar un elemento del grupo
+
+                //Get element select
+                int i = grcl.getCheckedRadioButtonId();
+
+
+                RadioButton seleccionado = (RadioButton) findViewById(i);
+                String status=seleccionado.getText().toString();
+
+               // Toast.makeText(Reclutado.this, name+" "+surname+" "+phone+" "+province+" "+address+" "+ observation+" "+status, Toast.LENGTH_LONG).show();
+
+              //  mensaje2.setText(name+" "+surname+" "+phone+" "+province+" "+ observation+" "+status);
+
+                //Delete selection
+               // grcl.clearCheck();
+
+
+
+                RestAdapter adapter=new RestAdapter.Builder()
+                        .setEndpoint(ROOT_URL)
+                        .build();
+
+
+                ApiInsertClient api=adapter.create(ApiInsertClient.class);
+                api.insertclient(
+                        id_advisor,
+                        name,
+                        surname,
+                        phone,
+                        province,
+                        address,
+                        observation,
+                        status,
+                        new Callback<Response>() {
+                            @Override
+                            public void success(Response response, Response response2) {
+
+                                Toast.makeText(Reclutado.this, "Cliente Agregado", Toast.LENGTH_SHORT).show();
+
+                                Intent intent=new Intent(v.getContext(),Modulos.class);
+                                startActivityForResult(intent,0);
+
+
+
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+
+                                Toast.makeText(Reclutado.this, "Algo ocurrio, vuelva a intentarlo", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+
+
+                );
+
+
+
+
+
+
+
+
+            }
+        });
+
+
     }
 
 
@@ -180,5 +283,9 @@ public class Reclutado extends AppCompatActivity {
 
 
     }
+
+
+
+
 
 }

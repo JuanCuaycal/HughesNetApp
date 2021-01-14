@@ -6,11 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterAsesor;
+import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterClient;
 import com.hughesnet.hughesnetapp.api.ApiAsesor;
 import com.hughesnet.hughesnetapp.api.ApiClient;
 import com.hughesnet.hughesnetapp.model.Asesor;
@@ -24,8 +23,7 @@ import retrofit2.Response;
 public class StatusReferidosActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-
-    private RecyclerAdapterAsesor adapter;
+    private RecyclerAdapterClient adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ApiAsesor apiInterface;
     private List<Asesor> asesores;
@@ -51,16 +49,16 @@ public class StatusReferidosActivity extends AppCompatActivity {
 
 
         apiInterface = ApiClient.getApiClient().create(ApiAsesor.class);
-        String tip=Estado;
-        Toast.makeText(getApplicationContext(),tip,Toast.LENGTH_LONG).show();
+        String estado=Estado;
+        Toast.makeText(getApplicationContext(),estado,Toast.LENGTH_LONG).show();
 
-        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaClient.php?t="+tip);
+        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaClient.php?status="+estado);
         call.enqueue(new Callback<List<Asesor>>() {
             @Override
             public void onResponse(Call<List<Asesor>> call, Response<List<Asesor>> response) {
                 if(response.body()!=null) {
                     asesores = response.body();
-                    adapter = new RecyclerAdapterAsesor(asesores);
+                    adapter = new RecyclerAdapterClient(asesores);
                     adapter.notifyDataSetChanged();
                     recyclerView.setAdapter(adapter);
                     recyclerView.setHasFixedSize(true);

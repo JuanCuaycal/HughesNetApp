@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 
 import com.bumptech.glide.Glide;
-import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterAsesor;
+import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterClient;
 import com.hughesnet.hughesnetapp.api.ApiAsesor;
 import com.hughesnet.hughesnetapp.api.ApiClient;
 import com.hughesnet.hughesnetapp.model.Asesor;
@@ -58,7 +58,7 @@ public class fragment_asesores extends Fragment  {
 
     RecyclerView recyclerView;
 
-    private RecyclerAdapterAsesor adapter;
+    private RecyclerAdapterClient adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ApiAsesor apiInterface;
     private List<Asesor> asesores;
@@ -129,7 +129,7 @@ public class fragment_asesores extends Fragment  {
             public void onResponse(Call<List<Asesor>> call, Response<List<Asesor>> response) {
                 if(response.body()!=null) {
                     asesores = response.body();
-                    adapter = new RecyclerAdapterAsesor(asesores);
+                    adapter = new RecyclerAdapterClient(asesores);
                     adapter.notifyDataSetChanged();
                     recyclerView.setAdapter(adapter);
                     recyclerView.setHasFixedSize(true);

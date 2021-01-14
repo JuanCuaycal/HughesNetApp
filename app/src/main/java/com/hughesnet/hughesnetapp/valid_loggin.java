@@ -60,9 +60,9 @@ public class valid_loggin extends AppCompatActivity {
 
 
 
-        if(camposvacios(password)==false && camposvacios(password2)==false && camposvacios(nombre)==false && camposvacios(apellido)==false && validarnumero(telefono.toString())==true && correovalidar(correo)==true && validardni(dni.toString())==true){
+        if(camposvacios(password.toString())==false && camposvacios(password2.toString())==false && camposvacios(nombre.toString())==false && camposvacios(apellido.toString())==false && validarnumero(telefono.toString())==true && correovalidar(correo.toString())==true && validardni(dni.toString())==true){
 
-            if(correosiguales(password,password2)==true){
+            if(correosiguales(password.toString(),password2.toString())==false){
 
 
                 Toast.makeText(valid_loggin.this, "Registro en Proceso ", Toast.LENGTH_SHORT).show();
@@ -85,7 +85,7 @@ public class valid_loggin extends AppCompatActivity {
                             @Override
                             public void success(retrofit.client.Response result, Response response) {
 
-                                Toast.makeText(valid_loggin.this, "Registrado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(valid_loggin.this,"Registrado", Toast.LENGTH_SHORT).show();
 
 
 
@@ -102,7 +102,7 @@ public class valid_loggin extends AppCompatActivity {
 
                             }
                         });
-            }else{
+            }if(correosiguales(password.toString(),password2.toString())==true){
 
                 Toast.makeText(valid_loggin.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
                 c1.setText("");
@@ -119,29 +119,13 @@ public class valid_loggin extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-                }
-
-
-
-
+            }
 
 
 
 
 
         });
-
-
-
-
-
-
 
 
 

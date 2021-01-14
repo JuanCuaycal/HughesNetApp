@@ -18,13 +18,13 @@ import com.hughesnet.hughesnetapp.model.Asesor;
 
 import java.util.List;
 
-public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterAsesor.MyViewHolder> implements View.OnClickListener {
+public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterClient.MyViewHolder> implements View.OnClickListener {
     private static Context context;
 
     List<Asesor> asesores;
 
     private View.OnClickListener listener;
-    public RecyclerAdapterAsesor(List<Asesor> asesores) {
+    public RecyclerAdapterClient(List<Asesor> asesores) {
         this.asesores = asesores;
     }
 
@@ -45,8 +45,12 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
         String x;
 
 
-        holder.txtInformacion.setText(asesores.get(position).getSurname());
-        holder.txtdescription.setText(asesores.get(position).getName());
+        holder.txtSurname.setText(asesores.get(position).getSurname());
+        holder.txtName.setText(asesores.get(position).getName());
+        holder.txtaddress.setText(asesores.get(position).getAddress());
+        holder.txtPhone.setText(asesores.get(position).getPhone());
+        holder.txtProvince.setText(asesores.get(position).getProvince());
+        holder.txtStatus.setText(asesores.get(position).getStatus());
 
 
        // Glide.with(holder.foto.getContext()).asBitmap().load("https://frutagolosa.com/FrutaGolosaApp/Administrador/images/" +ax+".jpg").transition(BitmapTransitionOptions.withCrossFade(1000)).diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true).transform(new CenterCrop(),new RoundedCorners(10)).apply(new RequestOptions().override(270,270)).into(holder.foto).waitForLayout();
@@ -75,7 +79,7 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
 
 
         CardView cardView;
-        TextView etiNombre,etiNombre2,txtInformacion,txtdescription,txtesatado;
+        TextView txtName,txtSurname,txtaddress,txtPhone,txtProvince,txtStatus;
         ImageView foto;
 
 
@@ -85,13 +89,13 @@ public class RecyclerAdapterAsesor extends RecyclerView.Adapter<RecyclerAdapterA
             cardView=(CardView) itemView.findViewById(R.id.id_cardview);
             CountDownTimer timer;
 
-            txtInformacion= (TextView) itemView.findViewById(R.id.tarjetero_txt);
-            etiNombre=(TextView) itemView.findViewById(R.id.textView13);
-            etiNombre2=(TextView) itemView.findViewById(R.id.textView12);
-            txtdescription= (TextView) itemView.findViewById(R.id.descripcion_txt);
-            txtesatado= (TextView) itemView.findViewById(R.id.id_estado);
 
-
+            txtName= (TextView) itemView.findViewById(R.id.id_name);
+            txtSurname= (TextView) itemView.findViewById(R.id.id_surname);
+            txtaddress= (TextView) itemView.findViewById(R.id.id_address);
+            txtPhone= (TextView) itemView.findViewById(R.id.id_phone);
+            txtProvince= (TextView) itemView.findViewById(R.id.id_province);
+            txtStatus= (TextView) itemView.findViewById(R.id.id_estado);
 
 
 

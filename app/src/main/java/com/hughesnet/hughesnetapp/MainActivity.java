@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String correo=c.getText().toString().trim();
-                String password=p.getText().toString().trim();
+                String correo=c.getText().toString().trim().replace(" ","");;
+                String password=p.getText().toString().trim().replace(" ","");;
 
-                if(correo.length()!=0 || password.length()!=0){
+                if(correo.length()!=0 && password.length()!=0){
 
                     RestAdapter adapter = new RestAdapter.Builder()
                             .setEndpoint(ROOT_URL)
@@ -55,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
                             password,
                             new Callback<Response>() {
                                 @Override
-                                public void success(retrofit.client.Response result, Response response) {
+                                public void success(Response response, Response response2) {
 
-                                    String a= result.getReason();
-                                    Toast.makeText(MainActivity.this, a, Toast.LENGTH_LONG).show();
+
+                                    Toast.makeText(MainActivity.this, response2.getBody().toString(), Toast.LENGTH_LONG).show();
 
                                     Intent intent=new Intent(view.getContext(),Modulos.class);
                                     startActivityForResult(intent,0);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void failure(RetrofitError error) {
 
-                                    Toast.makeText(MainActivity.this, "No estás registrado", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
 
                                 }
                             }
@@ -110,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent=new Intent(view.getContext(),Actividades.class);
-                //startActivityForResult(intent,0);
-                Toast.makeText(MainActivity.this, "Estamos trabajando en esta función", Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(view.getContext(),Formulario.class);
+                startActivityForResult(intent,0);
+               // Toast.makeText(MainActivity.this, "Estamos trabajando en esta función", Toast.LENGTH_LONG).show();
             }
         });
 

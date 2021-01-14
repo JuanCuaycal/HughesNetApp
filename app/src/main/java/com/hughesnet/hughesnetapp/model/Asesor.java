@@ -16,6 +16,20 @@ public class Asesor {
     @SerializedName("address")
     private String address;
 
+    @SerializedName("province")
+    private String province;
+
+    @SerializedName("city")
+    private String city;
+
+
+    @SerializedName("status")
+    private String status;
+
+
+    @SerializedName("observation")
+    private String observation;
+
     public String getName() {
         return name;
     }
@@ -46,5 +60,37 @@ public class Asesor {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getObservation() {
+        return observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
     }
 }
