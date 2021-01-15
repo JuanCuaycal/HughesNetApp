@@ -29,7 +29,7 @@ public class StatusReferidosActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ApiAsesor apiInterface;
     private List<Asesor> asesores;
-
+    public  static String Estados;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,13 +81,15 @@ public class StatusReferidosActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
 
-                            String nombreArreglo = asesores.get(recyclerView.getChildAdapterPosition(view)).getName();
-                            String valorArreglo = asesores.get(recyclerView.getChildAdapterPosition(view)).getPhone();
+                           // String nombreArreglo = asesores.get(recyclerView.getChildAdapterPosition(view)).getName();
+                            String dniclient = asesores.get(recyclerView.getChildAdapterPosition(view)).getPhone();
 
 
-                            Intent c = new Intent(getApplicationContext(), Referidos.class);
-                            Intent re = new Intent(getApplicationContext(), Referidos.class);
 
+                            //Intent c = new Intent(getApplicationContext(), Referidos.class);
+                            Intent re = new Intent(getApplicationContext(), CambioEstado.class);
+                            re.putExtra(Estados,dniclient);
+                            startActivityForResult(re,0);
                             startActivity(re);
                         }
                     });

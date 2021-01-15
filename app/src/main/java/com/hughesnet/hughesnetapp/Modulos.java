@@ -81,7 +81,7 @@ public class Modulos extends AppCompatActivity {
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("login", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.clear();
-                editor.commit(); // commit changes
+                editor.commit();
 
                 Intent intent=new Intent(v.getContext(),MainActivity.class);
                 startActivityForResult(intent,0);

@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".StatusReferidosActivity"></activity>
+        <activity android:name=".CambioEstado"></activity>
+        <activity android:name=".StatusReferidosActivity" />
         <activity android:name=".moodle_web" />
         <activity android:name=".valid_loggin" />
         <activity android:name=".Referidos" />

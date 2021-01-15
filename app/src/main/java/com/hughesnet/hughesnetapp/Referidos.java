@@ -103,7 +103,7 @@ public class Referidos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),StatusReferidosActivity.class);
-                intent.putExtra(Estado,"No le interesa");
+                intent.putExtra(Estado,"No desean");
                 startActivityForResult(intent,0);
             }
         });

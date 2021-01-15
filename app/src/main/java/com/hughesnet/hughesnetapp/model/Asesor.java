@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Asesor {
 
+    @SerializedName("id_client")
+    private String id_client;
+
     @SerializedName("name")
     private String name;
 
@@ -29,6 +32,14 @@ public class Asesor {
 
     @SerializedName("observation")
     private String observation;
+
+    public String getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(String id_client) {
+        this.id_client = id_client;
+    }
 
     public String getName() {
         return name;
