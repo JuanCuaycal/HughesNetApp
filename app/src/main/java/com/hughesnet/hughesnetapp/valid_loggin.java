@@ -52,8 +52,8 @@ public class valid_loggin extends AppCompatActivity {
                 String correo=c.getText().toString().replace(" ","");
                 String dni=d.getText().toString().replace(" ","");
 
-                String password=c1.getText().toString().replace(" ","");
-                String password2=c2.getText().toString().replace(" ","");
+                String password=c1.getText().toString().trim();
+                String password2=c2.getText().toString().trim();
 
              //   Toast.makeText(valid_loggin.this, pass1+" "+pass2, Toast.LENGTH_LONG).show();
 
@@ -62,7 +62,7 @@ public class valid_loggin extends AppCompatActivity {
 
         if(camposvacios(password.toString())==false && camposvacios(password2.toString())==false && camposvacios(nombre.toString())==false && camposvacios(apellido.toString())==false && validarnumero(telefono.toString())==true && correovalidar(correo.toString())==true && validardni(dni.toString())==true){
 
-            if(correosiguales(password.toString(),password2.toString())==true){
+            if(contrasena_iguales(password,password2)==true){
 
 
                 Toast.makeText(valid_loggin.this, "Registro en Proceso ", Toast.LENGTH_SHORT).show();
@@ -102,9 +102,9 @@ public class valid_loggin extends AppCompatActivity {
 
                             }
                         });
-            }if(correosiguales(password.toString(),password2.toString())==false){
+            }else{
 
-                Toast.makeText(valid_loggin.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                Toast.makeText(valid_loggin.this, password +"   "+ password2, Toast.LENGTH_LONG).show();
                 c1.setText("");
                 c2.setText("");
             }
@@ -113,7 +113,7 @@ public class valid_loggin extends AppCompatActivity {
         }else{
 
 
-            Toast.makeText(valid_loggin.this, "Faltan llenar los campos", Toast.LENGTH_LONG).show();
+            Toast.makeText(valid_loggin.this, "Datos Incompletos (Revise y vuelva a intentar)", Toast.LENGTH_LONG).show();
 
 
         }
@@ -132,11 +132,14 @@ public class valid_loggin extends AppCompatActivity {
     }
 
 
-    public boolean correosiguales(String pass1,String pass2) {
-        if (pass1==pass2) {
-            return true;
-        } else {
+    public boolean contrasena_iguales(String pass2,String pass1) {
+
+        String pas1=pass1.trim();
+        String pas2=pass2.trim();
+        if (!pas1.equals(pas2)){
             return false;
+        } else {
+            return true;
         }
     }
 

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             password,
                             new Callback<Response>() {
                                 @Override
-                                public void success(Response response, Response response2) {
+                                public void success(retrofit.client.Response result, Response response2) {
 
 
                                     BufferedReader reader = null;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                                     //String output = "";
 
                                     try {
-                                        reader = new BufferedReader(new InputStreamReader(response2.getBody().in()));
+                                        reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
                                         String output = reader.readLine();
                                         Toast.makeText(MainActivity.this, output, Toast.LENGTH_LONG).show();
 
