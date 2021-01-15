@@ -38,6 +38,7 @@
         android:background="@drawable/button_rounded"
         android:text="GRÁFICA REFERIDOS"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,6 +65,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
+        android:background="@drawable/button_exit"
         android:text="TOTAL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +81,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Contactado"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_total" />
@@ -93,6 +96,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Propuesto"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_contactado" />
@@ -107,6 +111,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Por Confirmar"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_propuesto" />
@@ -121,6 +126,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Vendido"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_confirm" />
@@ -135,6 +141,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="Instalado"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +157,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:text="No desean"
+        android:background="@drawable/button_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

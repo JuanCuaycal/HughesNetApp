@@ -19,6 +19,7 @@ public interface ApiRegister {
             @Field("telefono") String telefono,
             @Field("dni") String dni,
             @Field("password") String password,
+            @Field("type") String type,
             Callback<Response> callback
     );
 

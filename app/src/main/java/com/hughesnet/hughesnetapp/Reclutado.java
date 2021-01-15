@@ -48,6 +48,10 @@ public class Reclutado extends AppCompatActivity {
     TextView mensaje2;
     TextView mensaje3;
     public ArrayList<String> lista_ubicacion;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Spinner spinner1;
@@ -63,6 +67,11 @@ public class Reclutado extends AppCompatActivity {
         RadioGroup grcl=findViewById(R.id.id_radio_group_client);
 
 
+        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
+        String passs=preferences.getString("pass","def");
+        String correos=preferences.getString("mailus","def");
+        String types=preferences.getString("type","def");
+        String dni=preferences.getString("dni","def");
 
 
          mensaje1 =  findViewById(R.id.id_long);
@@ -91,7 +100,7 @@ public class Reclutado extends AppCompatActivity {
                 String province=pr.getSelectedItem().toString();
                 String address=mensaje2.getText().toString();
                 String observation=ob.getText().toString().trim().replace( " ","");
-                String id_advisor ="1111111";
+                String id_advisor =dni;
 
                    //Select seleccionar un elemento del grupo
 
@@ -132,7 +141,7 @@ public class Reclutado extends AppCompatActivity {
 
                                 Toast.makeText(Reclutado.this, "Cliente Agregado", Toast.LENGTH_SHORT).show();
 
-                                Intent intent=new Intent(v.getContext(),Modulos.class);
+                                Intent intent=new Intent(v.getContext(),Referidos.class);
                                 startActivityForResult(intent,0);
 
 

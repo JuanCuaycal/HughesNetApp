@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -33,8 +35,15 @@ public class StatusReferidosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status_referidos);
 
+        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
+        String passs=preferences.getString("pass","def");
+        String correos=preferences.getString("mailus","def");
+        String types=preferences.getString("type","def");
+        String dni=preferences.getString("dni","def");
 
         final String Estado = getIntent().getStringExtra(Referidos.Estado);
+
+
 
         recyclerView= (RecyclerView) findViewById(R.id.idfragmen_asesores2);
         final GridLayoutManager gridLayoutManager= new GridLayoutManager(getApplicationContext(),1);
@@ -50,9 +59,11 @@ public class StatusReferidosActivity extends AppCompatActivity {
 
         apiInterface = ApiClient.getApiClient().create(ApiAsesor.class);
         String estado=Estado;
-        Toast.makeText(getApplicationContext(),estado,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),dni,Toast.LENGTH_LONG).show();
 
-        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaClient.php?status="+estado);
+
+
+        Call<List<Asesor>> call = apiInterface.getAsesores("http://trainingcomercial.com/HughesNetApp/ListaClient.php?status="+estado+"&dni="+dni);
         call.enqueue(new Callback<List<Asesor>>() {
             @Override
             public void onResponse(Call<List<Asesor>> call, Response<List<Asesor>> response) {
@@ -64,6 +75,7 @@ public class StatusReferidosActivity extends AppCompatActivity {
                     recyclerView.setHasFixedSize(true);
                     adapter.notifyDataSetChanged();
                     recyclerView.setNestedScrollingEnabled(false);
+                 //   Toast.makeText(getApplicationContext(),dni,Toast.LENGTH_LONG).show();
                     adapter.setOnClickListener(new View.OnClickListener() {
 
                         @Override

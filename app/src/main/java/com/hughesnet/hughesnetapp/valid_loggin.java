@@ -54,7 +54,7 @@ public class valid_loggin extends AppCompatActivity {
 
                 String password=c1.getText().toString().trim();
                 String password2=c2.getText().toString().trim();
-
+                String type="0";
              //   Toast.makeText(valid_loggin.this, pass1+" "+pass2, Toast.LENGTH_LONG).show();
 
 
@@ -81,6 +81,7 @@ public class valid_loggin extends AppCompatActivity {
                         correo,
                         dni,
                         password,
+                        type,
                         new Callback<retrofit.client.Response>() {
                             @Override
                             public void success(retrofit.client.Response result, Response response) {
