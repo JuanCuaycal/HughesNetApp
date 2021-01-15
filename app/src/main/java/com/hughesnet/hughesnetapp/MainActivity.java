@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,10 @@ import android.widget.Toast;
 
 import com.hughesnet.hughesnetapp.api.ApiLogin;
 import com.hughesnet.hughesnetapp.api.ApiRegister;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -58,10 +63,27 @@ public class MainActivity extends AppCompatActivity {
                                 public void success(Response response, Response response2) {
 
 
-                                    Toast.makeText(MainActivity.this, response2.getBody().toString(), Toast.LENGTH_LONG).show();
+                                    BufferedReader reader = null;
 
-                                    Intent intent=new Intent(view.getContext(),Modulos.class);
-                                    startActivityForResult(intent,0);
+                                    //String output = "";
+
+                                    try {
+                                        reader = new BufferedReader(new InputStreamReader(response2.getBody().in()));
+                                        String output = reader.readLine();
+                                        Toast.makeText(MainActivity.this, output, Toast.LENGTH_LONG).show();
+
+                                        Intent intent=new Intent(view.getContext(),Modulos.class);
+                                        startActivityForResult(intent,0);
+                                        finish();
+
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+
+
                                 }
 
                                 @Override

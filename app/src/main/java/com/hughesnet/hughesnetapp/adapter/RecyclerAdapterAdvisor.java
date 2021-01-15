@@ -61,9 +61,9 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
 
             txtNameAdvisor= (TextView) itemView.findViewById(R.id.id_nombre_advisor_card);
-            txtAptitud= (TextView) itemView.findViewById(R.id.id_surname);
-            txtActitud= (TextView) itemView.findViewById(R.id.id_address);
-            txtPromedio= (TextView) itemView.findViewById(R.id.id_phone);
+            txtAptitud= (TextView) itemView.findViewById(R.id.id_aptitud);
+            txtActitud= (TextView) itemView.findViewById(R.id.id_actitud);
+            txtPromedio= (TextView) itemView.findViewById(R.id.id_promedio);
 
 
 
