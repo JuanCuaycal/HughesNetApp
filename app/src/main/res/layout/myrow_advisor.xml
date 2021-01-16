@@ -19,63 +19,70 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/idcarview_advisor"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="120dp"
-                android:layout_height="129dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/mapsblack"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="1dp" />
-
             <TextView
-                android:id="@+id/id_nombre_advisor_card"
-                android:layout_width="wrap_content"
+                android:id="@+id/id_actitud"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
-                android:text="Estado"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView6"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/id_actitud"
-                android:layout_width="43dp"
-                android:layout_height="20dp"
                 android:gravity="center"
                 android:text="Actitud"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_promedio" />
+
 
             <TextView
                 android:id="@+id/id_aptitud"
-                android:layout_width="wrap_content"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Aptitud"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView6" />
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_actitud" />
 
             <TextView
                 android:id="@+id/id_promedio"
-                android:layout_width="wrap_content"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Promedio"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/id_actitud"
-                app:layout_constraintStart_toEndOf="@+id/id_aptitud" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_nombre_advisor_card" />
+
+            <TextView
+                android:id="@+id/id_nombre_advisor_card"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
+                android:gravity="center"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

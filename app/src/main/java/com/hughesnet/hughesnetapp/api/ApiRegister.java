@@ -15,9 +15,9 @@ public interface ApiRegister {
 
             @Field("nombre") String nombre,
             @Field("apellido") String apellido,
-            @Field("correo") String correo,
-            @Field("telefono") String telefono,
             @Field("dni") String dni,
+            @Field("telefono") String telefono,
+            @Field("correo") String correo,
             @Field("password") String password,
             @Field("type") String type,
             Callback<Response> callback

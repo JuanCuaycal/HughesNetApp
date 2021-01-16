@@ -29,6 +29,7 @@ public class Modulos extends AppCompatActivity {
         Button btn_moodle=findViewById(R.id.btn_moodle);
         Button bt_estrategia=findViewById(R.id.btn_estrat);
         Button btn_entrenamiento=findViewById(R.id.btn_entrenam);
+        Button btn_advisorCard=findViewById(R.id.btn_cardAdvisor);
         Button btn_exit=findViewById(R.id.id_exit);
 
        // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
@@ -39,12 +40,14 @@ public class Modulos extends AppCompatActivity {
             btn_moodle.setVisibility(View.VISIBLE);
             bt_estrategia.setVisibility(View.VISIBLE);
             btn_entrenamiento.setVisibility(View.GONE);
+            btn_advisorCard.setVisibility(View.GONE);
 
         }else{
 
             btn_moodle.setVisibility(View.GONE);
             bt_estrategia.setVisibility(View.GONE);
             btn_entrenamiento.setVisibility(View.VISIBLE);
+            btn_advisorCard.setVisibility(View.VISIBLE);
 
 
 
@@ -71,6 +74,17 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view3) {
                 Intent intent =new Intent(view3.getContext(),Formulario.class);
                 startActivityForResult(intent,0);
+            }
+        });
+
+
+        btn_advisorCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =new Intent(v.getContext(),StatusAdvisorActivity.class);
+                startActivityForResult(intent,0);
+
             }
         });
 

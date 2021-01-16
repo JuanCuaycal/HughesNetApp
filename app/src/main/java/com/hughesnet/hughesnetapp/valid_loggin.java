@@ -75,11 +75,11 @@ public class valid_loggin extends AppCompatActivity {
 
                 ApiRegister api = adapter.create(ApiRegister.class);
                 api.insertadvisor(
-                        telefono,
                         nombre,
                         apellido,
-                        correo,
                         dni,
+                        telefono,
+                        correo,
                         password,
                         type,
                         new Callback<retrofit.client.Response>() {
