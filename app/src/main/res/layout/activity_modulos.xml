@@ -7,6 +7,34 @@
     tools:context=".Modulos"
     android:background="@drawable/skys">
 
+    <Button
+        android:id="@+id/id_exit2"
+        android:layout_width="45sp"
+        android:layout_height="45sp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_exit"
+        android:text="USER"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/id_exit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/id_exit3"
+        android:layout_width="45sp"
+        android:layout_height="45sp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/button_exit"
+        android:text="Info"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/id_exit" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="280dp"
@@ -79,12 +107,29 @@
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/button_rounded"
-        android:text="Nivel Asesor"
+        android:text="Asesores"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_entrenam" />
+
+    <Button
+        android:id="@+id/btn_Statictics"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@drawable/button_rounded"
+        android:text="Mis datos"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cardAdvisor" />
 
     <Button
         android:id="@+id/id_exit"

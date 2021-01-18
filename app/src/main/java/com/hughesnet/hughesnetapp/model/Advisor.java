@@ -21,6 +21,19 @@ public class Advisor {
     @SerializedName("password")
     private String password;
 
+    @SerializedName("city")
+    private String city;
+
+
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("channel")
+    private String channel;
+
+    @SerializedName("type")
+    private String type;
+
     public String getId_client() {
         return id_client;
     }
@@ -101,17 +114,6 @@ public class Advisor {
         this.type = type;
     }
 
-    @SerializedName("city")
-    private String city;
 
-
-    @SerializedName("description")
-    private String description;
-
-    @SerializedName("channel")
-    private String channel;
-
-    @SerializedName("type")
-    private String type;
 
 }

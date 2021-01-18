@@ -1,14 +1,22 @@
 package com.hughesnet.hughesnetapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.hughesnet.hughesnetapp.api.ApiRegister;
 
 import retrofit.Callback;
@@ -18,11 +26,12 @@ import retrofit.client.Response;
 
 public class valid_loggin extends AppCompatActivity {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
+   // FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valid_loggin);
-
+       // auth = FirebaseAuth.getInstance();
         EditText n=findViewById(R.id.id_name_registro);
         EditText a=findViewById(R.id.id_surname_registro);
         EditText t=findViewById(R.id.id_phone_registro);
@@ -87,7 +96,8 @@ public class valid_loggin extends AppCompatActivity {
                             public void success(retrofit.client.Response result, Response response) {
 
                                 Toast.makeText(valid_loggin.this,"Registrado", Toast.LENGTH_SHORT).show();
-
+                                //Descomenta este codigo para enviar el correo de verificacion
+                                //EnviarCorreo();
 
 
                                 Intent f = new Intent(valid_loggin.this, MainActivity.class);
@@ -189,6 +199,44 @@ public class valid_loggin extends AppCompatActivity {
 
 
     }
+
+    /*private void EnviarCorreo(){
+
+        EditText c=findViewById(R.id.id_email_registro);
+        EditText c1=findViewById(R.id.id_contrasena_register);
+        String co=c.getText().toString();
+        String p=c1.getText().toString();
+
+
+        auth.createUserWithEmailAndPassword(co,p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+
+
+                    Toast.makeText(valid_loggin.this, "No se envio su correo", Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+
+
+
+                        FirebaseUser user = auth.getCurrentUser();
+                        user.sendEmailVerification();
+
+                        Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+
+                        Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+            }
+        });
+
+
+    }*/
 
 
 

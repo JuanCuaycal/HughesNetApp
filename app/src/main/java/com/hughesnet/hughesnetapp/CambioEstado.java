@@ -29,7 +29,6 @@ public class CambioEstado extends AppCompatActivity {
 
         RadioGroup grcl=findViewById(R.id.id_radio_group_client_status);
         final String telefono = getIntent().getStringExtra(StatusReferidosActivity.Estados);
-        Toast.makeText(getApplicationContext(),telefono,Toast.LENGTH_LONG).show();
 
 
         Button btn_cambio= findViewById(R.id.id_cambio_status);
@@ -57,8 +56,9 @@ public class CambioEstado extends AppCompatActivity {
                             @Override
                             public void success(Response response, Response response2) {
 
-                                Toast.makeText(getApplicationContext(),"Estado Cambiado con Exito"+ status,Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Estado Cambiado con Exito a "+ status,Toast.LENGTH_LONG).show();
                                 Intent intent=new Intent(v.getContext(),Referidos.class);
+                                CambioEstado.this.setResult(RESULT_OK,intent);
                                 startActivityForResult(intent,0);
 
                             }
@@ -87,4 +87,6 @@ public class CambioEstado extends AppCompatActivity {
 
 
     }
+
+
 }

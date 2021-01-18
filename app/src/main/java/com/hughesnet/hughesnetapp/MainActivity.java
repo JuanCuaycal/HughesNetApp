@@ -1,5 +1,6 @@
 package com.hughesnet.hughesnetapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -11,6 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.hughesnet.hughesnetapp.api.ApiLogin;
 import com.hughesnet.hughesnetapp.api.ApiRegister;
 
@@ -25,12 +31,12 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
-    String type= "";
-    String dni="";
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        auth = FirebaseAuth.getInstance();
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
         String passs=preferences.getString("pass","def");
         String correos=preferences.getString("mailus","def");
@@ -63,8 +69,25 @@ public class MainActivity extends AppCompatActivity {
                     String password=p.getText().toString().trim().replace(" ","").toLowerCase();;
 
 
-                    // && correovalidar(correo)==true
+
                     if(correo.length()!=0 && password.length()!=0){
+
+                        //Descomenta este codigo y colocacar dentro del if el login de la app
+
+                      /*  auth.signInWithEmailAndPassword("","").addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if(user.isEmailVerified()){
+
+
+                                    }
+
+                                }
+                            }
+                        });*/
 
                         RestAdapter adapter = new RestAdapter.Builder()
                                 .setEndpoint(ROOT_URL)
@@ -132,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     }else{
 
 
-                        Toast.makeText(MainActivity.this, "Ingrese su correo y contraseña", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Datos incorrectos", Toast.LENGTH_LONG).show();
                     }
 
 

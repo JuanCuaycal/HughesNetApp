@@ -31,7 +31,8 @@ public class Modulos extends AppCompatActivity {
         Button btn_entrenamiento=findViewById(R.id.btn_entrenam);
         Button btn_advisorCard=findViewById(R.id.btn_cardAdvisor);
         Button btn_exit=findViewById(R.id.id_exit);
-
+        Button btn_profile=findViewById(R.id.id_exit2);
+        Button btn_sta=findViewById(R.id.btn_Statictics);
        // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
 
 
@@ -100,6 +101,25 @@ public class Modulos extends AppCompatActivity {
                 Intent intent=new Intent(v.getContext(),MainActivity.class);
                 startActivityForResult(intent,0);
                 finish();
+            }
+        });
+
+        btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent=new Intent(v.getContext(),Profile.class);
+                startActivityForResult(intent,0);
+
+            }
+        });
+
+        btn_sta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Datos.class);
+                startActivityForResult(intent,0);
             }
         });
 

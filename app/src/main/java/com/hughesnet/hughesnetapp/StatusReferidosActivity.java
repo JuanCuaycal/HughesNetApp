@@ -76,6 +76,13 @@ public class StatusReferidosActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                     recyclerView.setNestedScrollingEnabled(false);
                  //   Toast.makeText(getApplicationContext(),dni,Toast.LENGTH_LONG).show();
+
+                    if(asesores.isEmpty()){
+
+
+                        Toast.makeText(StatusReferidosActivity.this, "Status vacio", Toast.LENGTH_SHORT).show();
+                    }
+
                     adapter.setOnClickListener(new View.OnClickListener() {
 
                         @Override
@@ -94,11 +101,15 @@ public class StatusReferidosActivity extends AppCompatActivity {
                         }
                     });
 
-                }     }
+                }
+
+
+            }
 
             @Override
             public void onFailure(Call<List<Asesor>> call, Throwable t) {
 
+                Toast.makeText(StatusReferidosActivity.this, "Problemas de conexion a internet", Toast.LENGTH_SHORT).show();
             }
 
 

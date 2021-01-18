@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".StatusAdvisorActivity"></activity>
+        <activity android:name=".Datos"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".Profile" />
+        <activity android:name=".StatusAdvisorActivity" />
         <activity android:name=".CambioEstado" />
         <activity android:name=".StatusReferidosActivity" />
         <activity android:name=".moodle_web" />
