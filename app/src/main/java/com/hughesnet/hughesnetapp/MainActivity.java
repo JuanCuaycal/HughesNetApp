@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        auth = FirebaseAuth.getInstance();
+        //auth = FirebaseAuth.getInstance();
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
         String passs=preferences.getString("pass","def");
         String correos=preferences.getString("mailus","def");

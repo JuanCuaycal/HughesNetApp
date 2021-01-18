@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,7 @@ public class StatusAdvisorActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ApiAsesor apiInterface;
     private List<Advisor> advisors;
-    public  static String Estados;
+    public  static String Ides;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,19 @@ call.enqueue(new Callback<List<Advisor>>() {
             adapter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(),"Hola", Toast.LENGTH_LONG).show();
+                    String dniclient = advisors.get(recyclerView.getChildAdapterPosition(v)).getDni();
+
+                    //Toast.makeText(getApplicationContext(),dniclient,Toast.LENGTH_LONG).show();
+
+                    Intent re = new Intent(getApplicationContext(), Formulario.class);
+                    re.putExtra(Ides,dniclient);
+                    startActivityForResult(re,0);
+                    startActivity(re);
+
+            /*        Intent intent=new Intent(v.getContext(),Formulario.class);
+                    intent.putExtra("id_usuario",)
+                    startActivityForResult(intent,0);
+                    finish();*/
                 }
             });
 

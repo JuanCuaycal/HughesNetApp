@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077292138818",
+    "project_id": "hughesnetapp",
+    "storage_bucket": "hughesnetapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077292138818:android:f25d053c6af6b6d0ca08db",
+        "android_client_info": {
+          "package_name": "com.hughesnet.hughesnetapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077292138818-a2j4m0cii9hk0153uolj514ju5k6kin0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hughesnet.hughesnetapp",
+            "certificate_hash": "588c1e1c6d69eb51b9d15588fa2f5e8d0b27e96d"
+          }
+        },
+        {
+          "client_id": "1077292138818-ed49qh90io1ovh5q7mhtog2d1s62v4i3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxLzwWX66dMFRquzEEsLLLJbDChHbzQsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077292138818-ed49qh90io1ovh5q7mhtog2d1s62v4i3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

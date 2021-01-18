@@ -20,8 +20,9 @@
         android:gravity="center"
         android:text="CAMBIO ESTADO"
         android:textAllCaps="true"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,37 +44,43 @@
             android:id="@+id/radio1_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contactado" />
+            android:text="Contactado"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radio2_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Propuesto" />
+            android:text="Propuesto"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radio3_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Por Confirmar" />
+            android:text="Por Confirmar"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radio4_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vendido" />
+            android:text="Vendido"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radio5_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Instalado" />
+            android:text="Instalado"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radio6_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No desean" />
+            android:text="No desean"
+            android:textSize="30sp" />
 
     </RadioGroup>
 

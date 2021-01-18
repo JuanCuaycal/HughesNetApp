@@ -53,6 +53,9 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
         holder.txtPromedio.setText(advisors.get(position).getSurname());
         holder.txtActitud.setText(advisors.get(position).getPhone());
         holder.txtAptitud.setText(advisors.get(position).getEmail());
+        holder.txtActitud2.setText(advisors.get(position).getActitud());
+        holder.txtAptitud2.setText(advisors.get(position).getAptitud());
+        holder.txtidclient.setText(advisors.get(position).getDni());
 
         // Glide.with(holder.foto.getContext()).asBitmap().load("https://frutagolosa.com/FrutaGolosaApp/Administrador/images/" +ax+".jpg").transition(BitmapTransitionOptions.withCrossFade(1000)).diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true).transform(new CenterCrop(),new RoundedCorners(10)).apply(new RequestOptions().override(270,270)).into(holder.foto).waitForLayout();
 
@@ -87,7 +90,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
 
         CardView cardView;
-        TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor;
+        TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient;
         ImageView foto;
 
 
@@ -103,9 +106,10 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
             txtActitud= (TextView) itemView.findViewById(R.id.id_actitud);
             txtAptitud= (TextView) itemView.findViewById(R.id.id_aptitud);
 
+            txtActitud2= (TextView) itemView.findViewById(R.id.id_actitud21);
+            txtAptitud2= (TextView) itemView.findViewById(R.id.id_aptitud31);
 
-
-
+            txtidclient= (TextView) itemView.findViewById(R.id.id_asesor_dni);
 
 
         }

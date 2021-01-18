@@ -25,10 +25,19 @@ public class Formulario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+     final String ides = getIntent().getStringExtra(StatusAdvisorActivity.Ides);
+
+    // Toast.makeText(getApplicationContext(),ides,Toast.LENGTH_LONG).show();
+
+
         setContentView(R.layout.activity_formulario);
 
 
         EditText id_advisor=findViewById(R.id.id_asesor_form);
+
+        id_advisor.setText(ides);
+
 
         CheckBox pr1=findViewById(R.id.check1);
         CheckBox pr2=findViewById(R.id.check2);

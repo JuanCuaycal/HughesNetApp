@@ -24,6 +24,7 @@ import retrofit2.Response;
 
 public class StatusReferidosActivity extends AppCompatActivity {
 
+    public static String Ides;
     RecyclerView recyclerView;
     private RecyclerAdapterClient adapter;
     private RecyclerView.LayoutManager layoutManager;

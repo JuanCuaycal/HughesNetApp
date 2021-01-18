@@ -3,8 +3,8 @@ package com.hughesnet.hughesnetapp.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Advisor {
-    @SerializedName("id_advisor")
-    private String id_client;
+    @SerializedName("dni")
+    private String dni;
 
     @SerializedName("name")
     private String name;
@@ -14,6 +14,14 @@ public class Advisor {
 
     @SerializedName("phone")
     private String phone;
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     @SerializedName("email")
     private String email;
@@ -34,12 +42,32 @@ public class Advisor {
     @SerializedName("type")
     private String type;
 
-    public String getId_client() {
-        return id_client;
+    @SerializedName("actitud")
+    private String actitud;
+
+
+    @SerializedName("aptitud")
+    private String aptitud;
+
+    public String getActitud() {
+        return actitud;
     }
 
+    public void setActitud(String actitud) {
+        this.actitud = actitud;
+    }
+
+    public String getAptitud() {
+        return aptitud;
+    }
+
+    public void setAptitud(String aptitud) {
+        this.aptitud = aptitud;
+    }
+
+
     public void setId_client(String id_client) {
-        this.id_client = id_client;
+        this.dni = id_client;
     }
 
     public String getName() {

@@ -33,6 +33,8 @@ public class Asesor {
     @SerializedName("observation")
     private String observation;
 
+
+
     public String getId_client() {
         return id_client;
     }
