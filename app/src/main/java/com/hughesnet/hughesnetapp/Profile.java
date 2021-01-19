@@ -12,10 +12,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterClient;
+import com.hughesnet.hughesnetapp.api.ApiChangePicture;
 import com.hughesnet.hughesnetapp.api.ApiClient;
 import com.hughesnet.hughesnetapp.api.ApiProfile;
 import com.hughesnet.hughesnetapp.api.ApiRegister;
@@ -53,7 +55,18 @@ public class Profile extends AppCompatActivity {
 
         Button send=findViewById(R.id.btn_register_advisor);
 
+        ImageView imagenprofile=findViewById(R.id.imageView2);
+        Button btnimage =findViewById(R.id.id_button_image);
+
         chargeandfillText();
+
+
+btnimage.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(Profile.this,"Image",Toast.LENGTH_LONG).show();
+    }
+});
 
 psww.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -199,6 +212,9 @@ psww.setOnClickListener(new View.OnClickListener() {
 
     }
 
+
+
+
     private void chargeandfillText() {
 
         EditText n=findViewById(R.id.id_name_registro);
@@ -248,13 +264,13 @@ psww.setOnClickListener(new View.OnClickListener() {
 
     }
 
-    /*public void uploadImage(String action) {
+/*    public void uploadImage(String action) {
         Toast.makeText(this, "subiendo", Toast.LENGTH_SHORT).show();
 
         final SharedPreferences preferences=this.getSharedPreferences("bg-lgof", Context.MODE_PRIVATE);
         final String jwt=preferences.getString("jwt","0null0");
         ApiChangePicture apiInterface = ApiClient.getApiClient().create(ApiChangePicture.class);
-        String imagen=getStringImagen(bitmap);
+        String imagen=getStringImagen(cbitmap);
         Call<ModelSucces> call = apiInterface.Uploadphoto(getString(R.string.profileurl),jwt,actionxp,imagen);
         call.enqueue(new retrofit2.Callback<ModelSucces>() {
             @Override
@@ -315,6 +331,14 @@ psww.setOnClickListener(new View.OnClickListener() {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Seleciona imagen"), PICK_IMAGE_REQUEST);
+
+    }
+
+
+    public void clickImage(){
+        Toast.makeText(Profile.this,"Subir imagen",Toast.LENGTH_LONG);
+
+
 
     }
 

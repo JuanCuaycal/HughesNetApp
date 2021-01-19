@@ -11,7 +11,7 @@
         android:id="@+id/id_cardview_advisor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,32 +32,36 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/nivel2" />
+                app:srcCompat="@drawable/nivels" />
 
 
             <TextView
                 android:id="@+id/id_actitud"
-                android:layout_width="200sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
                 android:gravity="center"
-                android:text="Actitud"
-                android:textColor="#FFFFFF"
+                android:text="telefono"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView37"
                 app:layout_constraintTop_toBottomOf="@+id/id_asesor_dni" />
 
             <TextView
                 android:id="@+id/id_aptitud"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                android:text="Aptitud"
-                android:textColor="#FFFFFF"
+                android:text="Correo"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/id_actitud" />
 
             <TextView
@@ -67,14 +71,12 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:text="Actitud 90%"
-                android:textColor="#00BCD4"
+                android:textColor="#03A9F4"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView34"
@@ -84,12 +86,12 @@
                 android:id="@+id/id_aptitud31"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="12dp"
                 android:gravity="center"
                 android:text="Aptitud 90%"
-                android:textColor="#00BCD4"
+                android:textColor="#03A9F4"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +107,7 @@
                 android:layout_marginRight="16dp"
                 android:gravity="center"
                 android:text="Aptitud 90%"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="parent" />
 
@@ -116,7 +119,8 @@
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
                 android:text="Promedio"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/id_nombre_advisor_card"
@@ -131,7 +135,8 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Nombre"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,9 +146,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
                 android:layout_marginLeft="65dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="15dp"
                 android:text="Aptitud:"
-                android:textColor="#00BCD4"
+                android:textColor="#03A9F4"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -156,11 +161,13 @@
                 android:layout_marginStart="65dp"
                 android:layout_marginLeft="65dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Actitud:"
-                android:textColor="#00BCD4"
+                android:textColor="#03A9F4"
                 android:textColorLink="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
@@ -168,9 +175,11 @@
                 android:id="@+id/id_asesor_dni"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="15dp"
                 android:text="dni"
+                android:textColor="#000000"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView35"
@@ -182,9 +191,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
                 android:layout_marginLeft="65dp"
-                android:text="DNI :"
+                android:layout_marginTop="2dp"
+                android:text="D N I :"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:visibility="visible"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/id_promedio" />
+
+            <Button
+                android:id="@+id/btn_llamar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:text="Llamar"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_marginLeft="65dp"
+                android:text="Celular:"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView35" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -3,6 +3,7 @@
     package="com.hughesnet.hughesnetapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Datos"></activity>
+        <activity android:name=".Activity_graphics"></activity>
+        <activity android:name="GraphicsWeb.Activity_Graphics" />
+        <activity android:name=".Datos" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".Profile" />
         <activity android:name=".StatusAdvisorActivity" />

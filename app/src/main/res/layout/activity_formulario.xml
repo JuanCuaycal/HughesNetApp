@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sky2"
+    android:background="@drawable/skys"
     tools:context=".Formulario">
 
     <TextView
@@ -15,7 +15,7 @@
         android:gravity="center"
         android:text="Formulario"
         android:textAllCaps="true"
-        android:textColor="#FFFF"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,14 +44,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Digite el ID del asesor" />
+                android:text="Digite el ID del asesor"
+                android:textColor="#000000" />
 
             <EditText
                 android:id="@+id/id_asesor_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/text_seccion1"
@@ -59,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="APERTURA:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -72,7 +75,8 @@
                 android:button="@null"
                 android:checked="false"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Enganche" />
+                android:text="Enganche"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -83,7 +87,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Presentación" />
+                android:text="Presentación"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -94,12 +99,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Permiso para indagación" />
-
-
-
-
-
+                android:text="Permiso para indagación"
+                android:textColor="#000000" />
 
 
             <TextView
@@ -108,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="INDAGACIÓN:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -120,7 +122,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Trabajo" />
+                android:text="Trabajo"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check5"
@@ -130,7 +133,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Composición Familiar" />
+                android:text="Composición Familiar"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -141,7 +145,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Gustos y preferencias" />
+                android:text="Gustos y preferencias"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -152,7 +157,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Poder Adquisitivo" />
+                android:text="Poder Adquisitivo"
+                android:textColor="#000000" />
 
 
             <TextView
@@ -161,6 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="PRESENTACIÓN:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -173,7 +180,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Caracteristicas" />
+                android:text="Caracteristicas"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -184,9 +192,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Impacto" />
-
-
+                android:text="Impacto"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -197,7 +204,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Necesidad" />
+                android:text="Necesidad"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -208,7 +216,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Micro Cierres" />
+                android:text="Micro Cierres"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/text_seccion4"
@@ -216,6 +225,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="MANEJO DE OBJECIONES:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -228,7 +238,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Comprender la objeción" />
+                android:text="Comprender la objeción"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -239,7 +250,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Debate la objeción" />
+                android:text="Debate la objeción"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -250,7 +262,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Transforma en oportunidad" />
+                android:text="Transforma en oportunidad"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -261,7 +274,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Muestra caracteristicas potentes" />
+                android:text="Muestra caracteristicas potentes"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -272,7 +286,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Genera impacto a la experiencia al cliente" />
+                android:text="Genera impacto a la experiencia al cliente"
+                android:textColor="#000000" />
 
 
             <TextView
@@ -281,6 +296,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="TÉCNICAS DE CIERRE:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -293,8 +309,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Aplica el cierre de manera correcta" />
-
+                android:text="Aplica el cierre de manera correcta"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -305,7 +321,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Sostiene al cliente" />
+                android:text="Sostiene al cliente"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -316,8 +333,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Logra generar otra objeción" />
-
+                android:text="Logra generar otra objeción"
+                android:textColor="#000000" />
 
 
             <TextView
@@ -326,6 +343,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
                 android:text="APTITUD:"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -338,7 +356,9 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Es putual" />
+                android:text="Es putual"
+                android:textColor="#000000" />
+
             <CheckBox
                 android:id="@+id/check21"
                 android:layout_width="match_parent"
@@ -347,7 +367,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Maneja uniforme" />
+                android:text="Maneja uniforme"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check22"
@@ -357,7 +378,9 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Usa nombre del cliente" />
+                android:text="Usa nombre del cliente"
+                android:textColor="#000000" />
+
             <CheckBox
                 android:id="@+id/check23"
                 android:layout_width="match_parent"
@@ -366,7 +389,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="No usa muletillas" />
+                android:text="No usa muletillas"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check24"
@@ -376,7 +400,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Discute con el cliente" />
+                android:text="Discute con el cliente"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check25"
@@ -386,7 +411,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Puede responder de manera persuaciva" />
+                android:text="Puede responder de manera persuaciva"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -397,7 +423,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Muestra inseguridad" />
+                android:text="Muestra inseguridad"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -408,7 +435,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Se mantiene con buena actitud" />
+                android:text="Se mantiene con buena actitud"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check28"
@@ -418,7 +446,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Pierde el control de la conversación" />
+                android:text="Pierde el control de la conversación"
+                android:textColor="#000000" />
 
 
             <CheckBox
@@ -429,7 +458,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Tiene nivel de escucha activa" />
+                android:text="Tiene nivel de escucha activa"
+                android:textColor="#000000" />
 
             <CheckBox
                 android:id="@+id/check30"
@@ -439,7 +469,8 @@
                 android:layout_marginTop="5dp"
                 android:button="@null"
                 android:drawableRight="@android:drawable/btn_radio"
-                android:text="Comprende claramente las necesidades" />
+                android:text="Comprende claramente las necesidades"
+                android:textColor="#000000" />
 
 
 <!--            <CheckBox-->
@@ -457,7 +488,8 @@
                 android:id="@+id/btn_enviar_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ENVIAR"/>
+                android:text="ENVIAR"
+                android:background="@drawable/button_exit"/>
 
 
         </LinearLayout>

@@ -33,6 +33,8 @@ public class Modulos extends AppCompatActivity {
         Button btn_exit=findViewById(R.id.id_exit);
         Button btn_profile=findViewById(R.id.id_exit2);
         Button btn_sta=findViewById(R.id.btn_Statictics);
+
+        Button btn_info=findViewById(R.id.id_info);
        // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
 
 
@@ -120,6 +122,17 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),Datos.class);
                 startActivityForResult(intent,0);
+            }
+        });
+
+
+
+        btn_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(),Activity_graphics.class);
+                startActivityForResult(intent,0);
+
             }
         });
 

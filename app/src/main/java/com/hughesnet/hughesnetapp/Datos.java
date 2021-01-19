@@ -36,6 +36,15 @@ public class Datos extends AppCompatActivity {
         TextView act=(TextView) findViewById(R.id.textView14);
         TextView apt=(TextView) findViewById(R.id.textView25);
 
+
+        TextView ref_cont=(TextView) findViewById(R.id.id_ref_contact);
+        TextView ref_prop=(TextView) findViewById(R.id.id_ref_propues);
+        TextView ref_conf=(TextView) findViewById(R.id.id_ref_confirmar);
+        TextView ref_vend=(TextView) findViewById(R.id.id_ref_vendido);
+        TextView ref_install=(TextView) findViewById(R.id.id_ref_install);
+        TextView ref_no=(TextView) findViewById(R.id.id_ref_no_desea);
+
+
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
         String dni=preferences.getString("dni","def");
         apiInterface = ApiClient.getApiClient().create(ApiDatos.class);

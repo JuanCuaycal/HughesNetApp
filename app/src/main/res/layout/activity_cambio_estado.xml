@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CambioEstado"
-    android:background="@drawable/sky2">
+    android:background="@drawable/skys">
 
     <TextView
         android:id="@+id/textView100"
@@ -18,10 +18,10 @@
         android:layout_marginRight="45dp"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:text="CAMBIO ESTADO"
+        android:text="CAMBIO DE ESTADO"
         android:textAllCaps="true"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +31,9 @@
         android:id="@+id/id_radio_group_client_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,42 +45,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contactado"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radio2_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Propuesto"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radio3_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Por Confirmar"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radio4_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vendido"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radio5_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Instalado"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radio6_grupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No desean"
-            android:textSize="30sp" />
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
     </RadioGroup>
 
@@ -92,12 +98,13 @@
         android:layout_marginLeft="45dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Cambiar"
         android:background="@drawable/button_rounded"
+        android:text="Cambiar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_radio_group_client_status" />
+        app:layout_constraintTop_toBottomOf="@+id/id_radio_group_client_status"
+        app:layout_constraintVertical_bias="0.26999998" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

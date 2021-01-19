@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import com.firebase.ui.auth.AuthUI;
+//import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,20 +25,55 @@ import com.hughesnet.hughesnetapp.api.ApiRegister;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
+
+    public static final int REQUEST_CODE=544543;
     FirebaseAuth auth;
+    FirebaseAuth.AuthStateListener mAuthListener;
+
+ /*   List<AuthUI.IdpConfig> provider= Arrays.asList(
+            new AuthUI.IdpConfig.GoogleBuilder().build()
+    );*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+       // setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+/*        mAuthListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+              FirebaseUser user=firebaseAuth.getCurrentUser();
+
+              if(user !=null){
+                  Toast.makeText(MainActivity.this,"Iniciando sesión ",Toast.LENGTH_LONG);
+
+              }else{
+                  startActivityForResult(AuthUI.getInstance()
+                          .createSignInIntentBuilder()
+                          .setAvailableProviders(provider)
+                          .setIsSmartLockEnabled(false)
+                          .build(),REQUEST_CODE);
+
+
+              }
+            }
+        };*/
+
+
+
+
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
         String passs=preferences.getString("pass","def");
         String correos=preferences.getString("mailus","def");
@@ -70,18 +107,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    if(correo.length()!=0 && password.length()!=0){
+                    if(correo.length()!=0 && password.length()!=0 ){
 
                         //Descomenta este codigo y colocacar dentro del if el login de la app
 
-                      /*  auth.signInWithEmailAndPassword("","").addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+
+                       // Toast.makeText(MainActivity.this, "Firebase Check1", Toast.LENGTH_LONG).show();
+              /*         auth.signInWithEmailAndPassword("","").addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
 
                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                     if(user.isEmailVerified()){
-
+                                         Toast.makeText(MainActivity.this, "Firebase Check", Toast.LENGTH_LONG).show();
 
                                     }
 
@@ -185,9 +224,12 @@ public class MainActivity extends AppCompatActivity {
             bt3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(view.getContext(),Formulario.class);
-                    startActivityForResult(intent,0);
-                    // Toast.makeText(MainActivity.this, "Estamos trabajando en esta función", Toast.LENGTH_LONG).show();
+
+                    auth.addAuthStateListener(mAuthListener);
+                    //EnviarCorreo();
+                   // Intent intent=new Intent(view.getContext(),Formulario.class);
+                   // startActivityForResult(intent,0);
+                     Toast.makeText(MainActivity.this, "Estamos trabajando en esta función", Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -234,6 +276,47 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+
+/*    private void EnviarCorreo(){
+
+        EditText c=findViewById(R.id.id_email_registro);
+        EditText c1=findViewById(R.id.id_contrasena_register);
+        String co=c.getText().toString();
+        String p=c1.getText().toString();
+
+
+        auth.createUserWithEmailAndPassword(co,p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()){
+
+
+                    Toast.makeText(MainActivity.this, "No se envio su correo", Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+
+
+
+                        FirebaseUser user = auth.getCurrentUser();
+                        user.sendEmailVerification();
+
+                        Toast.makeText(MainActivity.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+
+                        Toast.makeText(MainActivity.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+            }
+        });
+
+
+    }*/
 
 
 }

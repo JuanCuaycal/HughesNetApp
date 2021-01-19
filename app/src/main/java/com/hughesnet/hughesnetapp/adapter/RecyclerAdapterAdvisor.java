@@ -2,17 +2,25 @@ package com.hughesnet.hughesnetapp.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hughesnet.hughesnetapp.ChangePassword;
+import com.hughesnet.hughesnetapp.MainActivity;
+import com.hughesnet.hughesnetapp.Profile;
 import com.hughesnet.hughesnetapp.R;
 import com.hughesnet.hughesnetapp.model.Advisor;
 import com.hughesnet.hughesnetapp.model.Asesor;
@@ -57,6 +65,25 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
         holder.txtAptitud2.setText(advisors.get(position).getAptitud());
         holder.txtidclient.setText(advisors.get(position).getDni());
 
+        String phone= advisors.get(position).getPhone();
+
+        holder.btnllamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Phone",phone);
+
+                /*Toast.makeText(,phone,Toast.LENGTH_LONG);*/
+          /*     Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phone));
+               context.startActivity(intent);*/
+
+
+                Intent i = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+phone));
+                RecyclerAdapterAdvisor.context.startActivity(i);
+
+            }
+        });
+
+
         // Glide.with(holder.foto.getContext()).asBitmap().load("https://frutagolosa.com/FrutaGolosaApp/Administrador/images/" +ax+".jpg").transition(BitmapTransitionOptions.withCrossFade(1000)).diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true).transform(new CenterCrop(),new RoundedCorners(10)).apply(new RequestOptions().override(270,270)).into(holder.foto).waitForLayout();
 
 
@@ -90,6 +117,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
 
         CardView cardView;
+         Button btnllamar;
         TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient;
         ImageView foto;
 
@@ -110,6 +138,9 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
             txtAptitud2= (TextView) itemView.findViewById(R.id.id_aptitud31);
 
             txtidclient= (TextView) itemView.findViewById(R.id.id_asesor_dni);
+            btnllamar=itemView.findViewById(R.id.btn_llamar);
+
+
 
 
         }

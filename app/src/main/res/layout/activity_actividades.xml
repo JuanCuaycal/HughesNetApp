@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Actividades"
-    android:background="@drawable/sky2">
+    android:background="@drawable/skys">
 
 
     <androidx.recyclerview.widget.RecyclerView

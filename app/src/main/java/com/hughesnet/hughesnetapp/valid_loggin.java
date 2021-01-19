@@ -26,12 +26,12 @@ import retrofit.client.Response;
 
 public class valid_loggin extends AppCompatActivity {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
-   // FirebaseAuth auth;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valid_loggin);
-       // auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         EditText n=findViewById(R.id.id_name_registro);
         EditText a=findViewById(R.id.id_surname_registro);
         EditText t=findViewById(R.id.id_phone_registro);
@@ -97,7 +97,7 @@ public class valid_loggin extends AppCompatActivity {
 
                                 Toast.makeText(valid_loggin.this,"Registrado", Toast.LENGTH_SHORT).show();
                                 //Descomenta este codigo para enviar el correo de verificacion
-                                //EnviarCorreo();
+                                EnviarCorreo();
 
 
                                 Intent f = new Intent(valid_loggin.this, MainActivity.class);
@@ -200,7 +200,7 @@ public class valid_loggin extends AppCompatActivity {
 
     }
 
-    /*private void EnviarCorreo(){
+    private void EnviarCorreo(){
 
         EditText c=findViewById(R.id.id_email_registro);
         EditText c1=findViewById(R.id.id_contrasena_register);
@@ -236,7 +236,7 @@ public class valid_loggin extends AppCompatActivity {
         });
 
 
-    }*/
+    }
 
 
 
