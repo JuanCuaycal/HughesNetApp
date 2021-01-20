@@ -49,6 +49,17 @@ public class Advisor {
     @SerializedName("aptitud")
     private String aptitud;
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    @SerializedName("imagen")
+    private String imagen;
+
     public String getActitud() {
         return actitud;
     }

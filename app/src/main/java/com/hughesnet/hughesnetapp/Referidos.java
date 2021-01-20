@@ -10,10 +10,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.hughesnet.hughesnetapp.api.ApiClient;
+import com.hughesnet.hughesnetapp.api.ApiReferidosCount;
+import com.hughesnet.hughesnetapp.model.DatosX;
+import com.hughesnet.hughesnetapp.model.ReferidosCount;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class Referidos extends AppCompatActivity {
 
-
+    private ApiReferidosCount apiInterfaceRef;
+    private List<ReferidosCount> datos2;
     public  static String Estado;
 
     @Override
@@ -31,6 +44,8 @@ public class Referidos extends AppCompatActivity {
         Button btnvendido = (Button) findViewById(R.id.btn_vendidos);
         Button btninstall = (Button) findViewById(R.id.btn_instalado);
         Button btnnodesean = (Button) findViewById(R.id.btn_no_desean);
+
+        chargeResult();
 
 
 
@@ -112,6 +127,74 @@ public class Referidos extends AppCompatActivity {
 
 
     }
+
+
+    private void chargeResult(){
+
+        TextView ref_total=(TextView) findViewById(R.id.id_button_total);
+        TextView ref_cont=(TextView) findViewById(R.id.id_button_contact);
+
+        TextView ref_prop=(TextView) findViewById(R.id.id_button_presup);
+        TextView ref_conf=(TextView) findViewById(R.id.id_button_confir);
+        TextView ref_vend=(TextView) findViewById(R.id.id_button_vend);
+        TextView ref_install=(TextView) findViewById(R.id.id_button_install);
+        TextView ref_no=(TextView) findViewById(R.id.id_button_no);
+
+
+
+
+        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
+        String dni=preferences.getString("dni","def");
+        apiInterfaceRef = ApiClient.getApiClient().create(ApiReferidosCount.class);
+        Call<List<ReferidosCount>> call=apiInterfaceRef.getResultCount("http://trainingcomercial.com/HughesNetApp/userdata/resultref.php?dni="+dni) ;
+        call.enqueue(new retrofit2.Callback<List<ReferidosCount>>() {
+
+            @Override
+            public void onResponse(Call<List<ReferidosCount>> call, Response<List<ReferidosCount>> response) {
+
+
+                Toast.makeText(Referidos.this, "Cargando Datos Ref", Toast.LENGTH_SHORT).show();
+
+
+
+                if (response.body() != null) {
+                    datos2=response.body();
+                    ref_total.setText(datos2.get(0).getTotal());
+                    ref_cont.setText(datos2.get(0).getContactados());
+                    ref_prop.setText(datos2.get(0).getPropuestos());
+                    ref_conf.setText(datos2.get(0).getConfirmados());
+                    ref_vend.setText(datos2.get(0).getVendidos());
+                    ref_install.setText(datos2.get(0).getInstalados());
+                    ref_no.setText(datos2.get(0).getNo());
+
+
+
+
+                }
+                else{
+
+                    Toast.makeText(Referidos.this, "No hay Datos", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ReferidosCount>> call, Throwable t) {
+                Toast.makeText(Referidos.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+
+
+
+
+
+        });
+
+    }
+
+
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

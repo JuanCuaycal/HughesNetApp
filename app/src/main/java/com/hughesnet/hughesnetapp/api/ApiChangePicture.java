@@ -10,14 +10,12 @@ public interface ApiChangePicture {
 
 
     @FormUrlEncoded
-    @POST("/Upload.php")
-    public void Uploadphoto(
-            @Field("imagen") String imagen,
-            @Field("nombre") String nombre,
-
+    @POST("/ImgArregloEnt.php")
+    public void inseruser(
+            @Field("a") String a,
+            @Field("b") String b,
             Callback<Response> callback
 
 
     );
-
 }

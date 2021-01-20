@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -200,21 +201,54 @@ public class valid_loggin extends AppCompatActivity {
 
     }
 
-    private void EnviarCorreo(){
+    private void EnviarCorreo() {
 
-        EditText c=findViewById(R.id.id_email_registro);
-        EditText c1=findViewById(R.id.id_contrasena_register);
-        String co=c.getText().toString();
-        String p=c1.getText().toString();
+        EditText c = findViewById(R.id.id_email_registro);
+        EditText c1 = findViewById(R.id.id_contrasena_register);
+        String co = c.getText().toString().trim();
+        String p = c1.getText().toString().trim();
 
 
-        auth.createUserWithEmailAndPassword(co,p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(co, p)
+
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("TAG", "createUserWithEmail:success");
+                            FirebaseUser user = auth.getCurrentUser();
+                            user.sendEmailVerification();
+
+
+                                Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
+
+
+
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("TAG", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(valid_loggin.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            // updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+
+
+/*        auth.createUserWithEmailAndPassword(co,p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
 
+                    Log.e("mal",task.toString());
+                    Log.e("mal",task.getResult().toString());
 
-                    Toast.makeText(valid_loggin.this, "No se envio su correo", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(valid_loggin.this, "Mal", Toast.LENGTH_SHORT).show();
                 }else{
                     try {
 
@@ -236,9 +270,9 @@ public class valid_loggin extends AppCompatActivity {
         });
 
 
+    }*/
+
+
     }
-
-
-
 
 }

@@ -82,7 +82,7 @@ public class Reclutado extends AppCompatActivity {
 
 
         spinner1=findViewById(R.id.id_spinner_province_client);
-        String[] ciudades={"Quito","Guayaquil","Cuenca","Esmeraldas","Santa Elena","Los Rios","El Oro","Santo Domingo","Cañar","El Carchi","Pastaza","Zamora","Otros"};
+        String[] ciudades={"Pichincha","Guayaquil","Cuenca","Esmeraldas","Santa Elena","Los Rios","El Oro","Santo Domingo","Cañar","El Carchi","Pastaza","Zamora","Otros"};
 
         ArrayAdapter <String> adapter1= new ArrayAdapter<String>(this, R.layout.spinner_item_forma, ciudades);
         spinner1.setAdapter(adapter1);

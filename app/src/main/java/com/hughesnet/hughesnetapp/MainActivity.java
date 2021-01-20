@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity  {
        // setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        auth = FirebaseAuth.getInstance();
+      //  auth = FirebaseAuth.getInstance();
 
 /*        mAuthListener=new FirebaseAuth.AuthStateListener() {
             @Override
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity  {
                 @Override
                 public void onClick(View view) {
 
-                    auth.addAuthStateListener(mAuthListener);
+                    //auth.addAuthStateListener(mAuthListener);
                     //EnviarCorreo();
                    // Intent intent=new Intent(view.getContext(),Formulario.class);
                    // startActivityForResult(intent,0);

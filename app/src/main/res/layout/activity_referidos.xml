@@ -58,109 +58,177 @@
 
     <Button
         android:id="@+id/btn_total"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:background="@drawable/button_exit"
         android:text="TOTAL"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/btn_contactado"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Contactado"
         android:background="@drawable/button_exit"
+        android:text="Contactado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_total" />
 
     <Button
         android:id="@+id/btn_propuesto"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Propuesto"
         android:background="@drawable/button_exit"
+        android:text="Propuesto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_contactado" />
 
     <Button
         android:id="@+id/btn_confirm"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Por Confirmar"
         android:background="@drawable/button_exit"
+        android:text="Por Confirmar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_propuesto" />
 
     <Button
         android:id="@+id/btn_vendidos"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Vendido"
         android:background="@drawable/button_exit"
+        android:text="Vendido"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_confirm" />
 
     <Button
         android:id="@+id/btn_instalado"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="Instalado"
         android:background="@drawable/button_exit"
+        android:text="Instalado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_vendidos" />
 
     <Button
         android:id="@+id/btn_no_desean"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:text="No desean"
         android:background="@drawable/button_exit"
+        android:text="No desean"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_instalado" />
+
+    <Button
+        android:id="@+id/id_button_total"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/id_button_contact"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_contactado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_total" />
+
+    <Button
+        android:id="@+id/id_button_presup"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_propuesto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_contact" />
+
+    <Button
+        android:id="@+id/id_button_confir"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_presup" />
+
+    <Button
+        android:id="@+id/id_button_vend"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_vendidos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_confir" />
+
+    <Button
+        android:id="@+id/id_button_no"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_no_desean"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_install" />
+
+    <Button
+        android:id="@+id/id_button_install"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/button_exit"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_instalado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_vend" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

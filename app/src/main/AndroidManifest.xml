@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -16,6 +18,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Activity_graphics"></activity>
         <activity android:name="GraphicsWeb.Activity_Graphics" />
+
         <activity android:name=".Datos" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".Profile" />
