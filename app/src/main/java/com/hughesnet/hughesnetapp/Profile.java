@@ -52,17 +52,21 @@ import retrofit.client.Response;
 import retrofit2.Call;
 
 public class Profile extends AppCompatActivity {
+    public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp";
+
     private ApiProfile apiInterface;
     private List<Advisor> Advisores;
 
     Bitmap bitmap;
     int PICK_IMAGE_REQUEST = 1;
-    String UPLOAD_URL = "https://frutagolosa.com/FrutaGolosaApp/Upload.php";
+    String UPLOAD_URL = "http://trainingcomercial.com/HughesNetApp/Upload.php";
     String KEY_IMAGE = "foto";
     String KEY_NOMBRE = "nombre";
-    public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userdata";
 
-    ImageView imagenprofile=findViewById(R.id.image_profile);
+    private final int xf=(int)(Math.random()*10000);
+    private final String xf2=String.valueOf(xf);
+
+
 
 
     @Override
@@ -75,7 +79,7 @@ public class Profile extends AppCompatActivity {
         EditText t=findViewById(R.id.id_phone_registro);
         EditText c=findViewById(R.id.id_email_registro);
 
-
+        ImageView imagenprofile=findViewById(R.id.image_profile);
         //Password
         Button psww=findViewById(R.id.btn_register_advisor2);
 
@@ -100,8 +104,8 @@ psww.setOnClickListener(new View.OnClickListener() {
 imagenprofile.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        //showFileChooser();
-        Toast.makeText(Profile.this,"AQUI",Toast.LENGTH_LONG);
+        showFileChooser();
+        //Toast.makeText(Profile.this,"AQUI",Toast.LENGTH_LONG).show();
 
     }
 });
@@ -186,7 +190,7 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
         });
     }
 
- /*   private void showFileChooser() {
+    private void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -201,6 +205,8 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri filePath = data.getData();
             try {
+                Toast.makeText(Profile.this,"AQUI",Toast.LENGTH_LONG).show();
+
                 //Cómo obtener el mapa de bits de la Galería
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 bitmap= Bitmap.createScaledBitmap(bitmap,440,520,true);
@@ -219,13 +225,13 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
 
 
     private void insetaimagenarreglolisto(){
-        //final String IDPEDIDO=getIntent().getStringExtra(PedidosAsignados.IdPEDIDOA);
-       // final String Fecha_qRecibe=getIntent().getStringExtra(PedidosAsignados.FechaQrecibeA);
-        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
-        final String telefonous=preferences.getString("telefonous","No");
 
-        String a="https://frutagolosa.com/FrutaGolosaApp/uploads/"+"11"+".png";
-        String b="IDPEDIDO";
+        SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
+        String dni=preferences.getString("dni","def");
+
+
+        String a="http://trainingcomercial.com/HughesNetApp/images/"+xf2+".png";
+        String b=dni;
 
         RestAdapter adapter = new RestAdapter.Builder()
                 .setEndpoint(ROOT_URL)
@@ -272,14 +278,16 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
     }
 
     public void uploadImage() {
-        final String Fecha_qRecibe="1111111";
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
-        final String nombreus=preferences.getString("nombreus","Registrese");
-        final String telefonous=preferences.getString("telefonous","No");
+        String dni=preferences.getString("dni","def");
+
+
+        String a="http://trainingcomercial.com/HughesNetApp/images/"+xf2+".png";
 
         final ProgressDialog loading = ProgressDialog.show(this, "Subiendo...", "Espere por favor");
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
+
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -296,7 +304,7 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String imagen = getStringImagen(bitmap);
-                String nombre = Fecha_qRecibe.replace("/","a")+"xf2";
+                String nombre = xf2;
 
                 Map<String, String> params = new Hashtable<String, String>();
                 params.put(KEY_IMAGE, imagen);
@@ -308,7 +316,7 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    }*/
+    }
 
 
 
@@ -429,7 +437,8 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
 
     }
 
-/*    public void uploadImage(String action) {
+    /*
+    public void uploadImage(String action) {
         Toast.makeText(this, "subiendo", Toast.LENGTH_SHORT).show();
 
         final SharedPreferences preferences=this.getSharedPreferences("bg-lgof", Context.MODE_PRIVATE);
@@ -466,12 +475,12 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
 
         });
 
-    }*/
+    }
+
+*/
 
 
 
-
-/*
     public String getStringImagen(Bitmap bmp) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
@@ -495,7 +504,7 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
 
-*/
+
 
 
 
