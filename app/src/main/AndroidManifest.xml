@@ -12,14 +12,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity_graphics"></activity>
+        <activity android:name=".PopUp_DetalleAdv"></activity>
+        <activity android:name=".Activity_graphics" />
         <activity android:name="GraphicsWeb.Activity_Graphics" />
-
         <activity android:name=".Datos" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".Profile" />

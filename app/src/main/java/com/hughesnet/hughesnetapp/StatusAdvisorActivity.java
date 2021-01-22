@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterAdvisor;
@@ -31,6 +33,12 @@ public class StatusAdvisorActivity extends AppCompatActivity {
     private ApiAsesor apiInterface;
     private List<Advisor> advisors;
     public  static String Ides;
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +57,11 @@ public class StatusAdvisorActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
 
+
+
+
+
         apiInterface = ApiClient.getApiClient().create(ApiAsesor.class);
-
-
-
         Call<List<Advisor>> call = apiInterface.getAdvisor("http://trainingcomercial.com/HughesNetApp/ListaAsesores.php");
 
 call.enqueue(new Callback<List<Advisor>>() {
@@ -76,10 +85,10 @@ call.enqueue(new Callback<List<Advisor>>() {
 
                     //Toast.makeText(getApplicationContext(),dniclient,Toast.LENGTH_LONG).show();
 
-                    Intent re = new Intent(getApplicationContext(), Formulario.class);
+            /*        Intent re = new Intent(getApplicationContext(), Formulario.class);
                     re.putExtra(Ides,dniclient);
                     startActivityForResult(re,0);
-                    startActivity(re);
+                    startActivity(re);*/
 
             /*        Intent intent=new Intent(v.getContext(),Formulario.class);
                     intent.putExtra("id_usuario",)
@@ -100,6 +109,13 @@ call.enqueue(new Callback<List<Advisor>>() {
         Toast.makeText(getApplicationContext(),"mal",Toast.LENGTH_LONG).show();
     }
 });
+
+
+
+
+
+
+
 
     }
 }

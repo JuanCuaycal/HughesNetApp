@@ -1,7 +1,10 @@
 package com.hughesnet.hughesnetapp.adapter;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.CountDownTimer;
@@ -19,7 +22,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hughesnet.hughesnetapp.ChangePassword;
+import com.hughesnet.hughesnetapp.Formulario;
 import com.hughesnet.hughesnetapp.MainActivity;
+import com.hughesnet.hughesnetapp.PopUp_DetalleAdv;
 import com.hughesnet.hughesnetapp.Profile;
 import com.hughesnet.hughesnetapp.R;
 import com.hughesnet.hughesnetapp.model.Advisor;
@@ -27,13 +32,17 @@ import com.hughesnet.hughesnetapp.model.Asesor;
 
 import java.util.List;
 
+import static androidx.core.content.ContextCompat.startActivities;
+import static androidx.core.content.ContextCompat.startActivity;
+
 
 public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapterAdvisor.MyViewHolder> implements View.OnClickListener{
-    private static Context context;
+    private static  Context context;
 
 
+    public ImageView imgdetalle;
     List<Advisor> advisors;
-
+    public  static String Ides;
 
     private View.OnClickListener listener;
     public RecyclerAdapterAdvisor(List<Advisor> advisors) {
@@ -57,18 +66,92 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
         String x;
 
 
-        holder.txtNameAdvisor.setText(advisors.get(position).getName());
+        holder.txtNameAdvisor.setText(advisors.get(position).getName()+" "+advisors.get(position).getSurname());
         holder.txtPromedio.setText(advisors.get(position).getSurname());
         holder.txtActitud.setText(advisors.get(position).getPhone());
         holder.txtAptitud.setText(advisors.get(position).getEmail());
         holder.txtActitud2.setText(advisors.get(position).getActitud());
         holder.txtAptitud2.setText(advisors.get(position).getAptitud());
         holder.txtidclient.setText(advisors.get(position).getDni());
-
-        String phone= advisors.get(position).getPhone();
-
         holder.txtReferidos.setText(advisors.get(position).getReferidos());
         holder.txtVentas.setText(advisors.get(position).getVentas());
+
+
+
+        String phone=advisors.get(position).getPhone();
+        String dniclient= advisors.get(position).getDni();
+
+
+        holder.btncheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+             //   openDialog(v);
+
+               AlertDialog.Builder alert=new AlertDialog.Builder(v.getContext());
+                alert.setMessage(
+                        "Detalle de Aptitud"
+                        +" \n "+dniclient
+                                +" \n "+"APTITUD"
+                                +" \n "+"Apertura:"+"100%"
+                                +" \n "+"Apertura:"+"100%"
+                                +" \n "+"ACTITUD"
+
+                ).setTitle("Detalle de Asesor").setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(v.getContext(),"Aceptar",Toast.LENGTH_SHORT).show();;
+                    }
+                }).setCancelable(true).show();
+  /*                      .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                dialog.cancel();
+                            }
+                        }).setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                       dialog.cancel();
+                    }
+                })*/
+
+           /*     Toast.makeText(v.getContext(),"Check List",Toast.LENGTH_SHORT).show();;
+                v.getContext().startActivity(new Intent(v.getContext(),PopUp_DetalleAdv.class));*/
+            }
+        });
+
+
+        holder.btnformulario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(v.getContext(),"Evaluación",Toast.LENGTH_SHORT).show();;
+                v.getContext().startActivity(new Intent(v.getContext(),Formulario.class).putExtra(Ides,dniclient));
+
+            }
+        });
+
+
+
+        holder.foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(v.getContext(),"Aquí",Toast.LENGTH_LONG).show();;
+                v.getContext().startActivity(new Intent(v.getContext(),PopUp_DetalleAdv.class));
+
+            }
+        });
+
+
+
+
+
+
         holder.btnllamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +163,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
 
                 Intent i = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+phone));
-                RecyclerAdapterAdvisor.context.startActivity(i);
+               // RecyclerAdapterAdvisor.context.startActivity(i);
 
             }
         });
@@ -119,7 +202,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
 
         CardView cardView;
-         Button btnllamar;
+         Button btnllamar,btnformulario,btncheck;
         TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient,txtReferidos,txtVentas;
         ImageView foto;
 
@@ -145,10 +228,20 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
             txtidclient= (TextView) itemView.findViewById(R.id.id_asesor_dni);
             btnllamar=itemView.findViewById(R.id.btn_llamar);
 
-
+            btnformulario=itemView.findViewById(R.id.id_button_formulario_row);
+            btncheck=itemView.findViewById(R.id.id_button_checklist_row);
+            foto= (ImageView) itemView.findViewById(R.id.imageView5);
 
 
         }
+    }
+
+
+    public void openDialog(View view) {
+        final Dialog dialog = new Dialog(context); // Context, this, etc.
+        dialog.setContentView(R.layout.fragment_advisors);
+        dialog.setTitle("Hi");
+        dialog.show();
     }
 
 }
