@@ -72,7 +72,7 @@ public class valid_loggin extends AppCompatActivity {
 
         if(camposvacios(password.toString())==false && camposvacios(password2.toString())==false && camposvacios(nombre.toString())==false && camposvacios(apellido.toString())==false && validarnumero(telefono.toString())==true && correovalidar(correo.toString())==true && validardni(dni.toString())==true){
 
-            if(contrasena_iguales(password,password2)==true){
+            if(contrasena_iguales(password,password2)==true  && validarcontrasena(password)==true){
 
 
                 Toast.makeText(valid_loggin.this, "Registro en Proceso ", Toast.LENGTH_SHORT).show();
@@ -116,7 +116,7 @@ public class valid_loggin extends AppCompatActivity {
                         });
             }else{
 
-                Toast.makeText(valid_loggin.this, password +"   "+ password2, Toast.LENGTH_LONG).show();
+                Toast.makeText(valid_loggin.this, "La contraseña no coincide (6 DIGITOS)", Toast.LENGTH_LONG).show();
                 c1.setText("");
                 c2.setText("");
             }
@@ -176,6 +176,16 @@ public class valid_loggin extends AppCompatActivity {
 
 
 
+    public boolean validarcontrasena(String cadena) {
+        if (cadena.length()==6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     public boolean correovalidar(String email) {
 
        if(email.matches("[-\\w\\.]+@\\w+\\.\\w+")){
@@ -217,8 +227,25 @@ public class valid_loggin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
                             user.sendEmailVerification();
+                            if (user.isEmailVerified())
+                            {
+                                // user is verified, so you can finish this activity or send user to activity which you want.
+                                finish();
+                                Toast.makeText(valid_loggin.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                // email is not verified, so just prompt the message to the user and restart this activity.
+                                // NOTE: don't forget to log out the user.
+                                Toast.makeText(valid_loggin.this, "NO Successfully logged in", Toast.LENGTH_SHORT).show();
+                                FirebaseAuth.getInstance().signOut();
+
+                                //restart this activity
+
+                            }
 
 
                                 Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();

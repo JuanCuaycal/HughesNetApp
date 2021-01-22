@@ -61,6 +61,7 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view1) {
                 Intent intent=new Intent(view1.getContext(),moodle_web.class);
                 startActivityForResult(intent,0);
+
             }
         });
 
@@ -69,6 +70,7 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view2) {
                 Intent intent=new Intent(view2.getContext(),Referidos.class);
                 startActivityForResult(intent,0);
+
             }
         });
 
@@ -77,6 +79,7 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view3) {
                 Intent intent =new Intent(view3.getContext(),Formulario.class);
                 startActivityForResult(intent,0);
+
             }
         });
 
@@ -87,6 +90,7 @@ public class Modulos extends AppCompatActivity {
 
                 Intent intent =new Intent(v.getContext(),StatusAdvisorActivity.class);
                 startActivityForResult(intent,0);
+
 
             }
         });
@@ -102,7 +106,7 @@ public class Modulos extends AppCompatActivity {
 
                 Intent intent=new Intent(v.getContext(),MainActivity.class);
                 startActivityForResult(intent,0);
-                finish();
+
             }
         });
 
@@ -122,6 +126,7 @@ public class Modulos extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),Datos.class);
                 startActivityForResult(intent,0);
+
             }
         });
 

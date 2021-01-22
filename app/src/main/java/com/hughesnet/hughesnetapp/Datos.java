@@ -109,7 +109,7 @@ public class Datos extends AppCompatActivity {
             public void onResponse(Call<List<ReferidosCount>> call, Response<List<ReferidosCount>> response) {
 
 
-                Toast.makeText(Datos.this, "Cargando Datos Ref", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Datos.this, "Cargando Datos", Toast.LENGTH_SHORT).show();
 
 
 

@@ -49,6 +49,28 @@ public class Advisor {
     @SerializedName("aptitud")
     private String aptitud;
 
+    @SerializedName("referidos")
+    private String referidos;
+
+    @SerializedName("ventas")
+    private String ventas;
+
+    public String getReferidos() {
+        return referidos;
+    }
+
+    public void setReferidos(String referidos) {
+        this.referidos = referidos;
+    }
+
+    public String getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(String ventas) {
+        this.ventas = ventas;
+    }
+
     public String getImagen() {
         return imagen;
     }

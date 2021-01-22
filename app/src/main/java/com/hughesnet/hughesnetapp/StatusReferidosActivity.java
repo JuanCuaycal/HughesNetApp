@@ -99,6 +99,7 @@ public class StatusReferidosActivity extends AppCompatActivity {
                             re.putExtra(Estados,dniclient);
                             startActivityForResult(re,0);
                             startActivity(re);
+
                         }
                     });
 

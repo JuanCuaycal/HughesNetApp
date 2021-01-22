@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,32 +47,12 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-       // setTheme(R.style.SplashTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  auth = FirebaseAuth.getInstance();
-
-/*        mAuthListener=new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-              FirebaseUser user=firebaseAuth.getCurrentUser();
-
-              if(user !=null){
-                  Toast.makeText(MainActivity.this,"Iniciando sesión ",Toast.LENGTH_LONG);
-
-              }else{
-                  startActivityForResult(AuthUI.getInstance()
-                          .createSignInIntentBuilder()
-                          .setAvailableProviders(provider)
-                          .setIsSmartLockEnabled(false)
-                          .build(),REQUEST_CODE);
 
 
-              }
-            }
-        };*/
-
-
+        auth = FirebaseAuth.getInstance ();
 
 
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
@@ -106,87 +87,12 @@ public class MainActivity extends AppCompatActivity  {
                     String password=p.getText().toString().trim().replace(" ","").toLowerCase();;
 
 
-
+//Descomentar para que solo ingrese con cuentas de correo
+                 //   if(correo.length()!=0 && password.length()!=0 && correovalidar(correo)){
                     if(correo.length()!=0 && password.length()!=0 ){
+                        loggeobase(correo,password,view);
 
-                        //Descomenta este codigo y colocacar dentro del if el login de la app
-
-
-                       // Toast.makeText(MainActivity.this, "Firebase Check1", Toast.LENGTH_LONG).show();
-              /*         auth.signInWithEmailAndPassword("","").addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-
-                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                    if(user.isEmailVerified()){
-                                         Toast.makeText(MainActivity.this, "Firebase Check", Toast.LENGTH_LONG).show();
-
-                                    }
-
-                                }
-                            }
-                        });*/
-
-                        RestAdapter adapter = new RestAdapter.Builder()
-                                .setEndpoint(ROOT_URL)
-                                .build();
-
-                        ApiLogin api = adapter.create(ApiLogin.class);
-
-                        api.loggear(
-                                correo,
-                                password,
-                                new Callback<Response>() {
-                                    @Override
-                                    public void success(retrofit.client.Response result, Response response2) {
-
-
-                                        BufferedReader reader = null;
-
-                                        //String output = "";
-
-                                        try {
-                                            reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
-                                            String output = reader.readLine();
-                                           // Toast.makeText(MainActivity.this, output, Toast.LENGTH_LONG).show();
-
-
-                                            String a =output.substring(0,1);
-                                            String b=output.substring(1,output.length());
-
-                                            if (a.equals("0")  || a.equals("1") ){
-                                                savepreferences(a,b);
-                                                Intent intent=new Intent(view.getContext(),Modulos.class);
-                                                startActivityForResult(intent,0);
-                                                finish();
-                                            }else{
-
-                                                Toast.makeText(MainActivity.this, "No está registrado", Toast.LENGTH_LONG).show();
-
-                                            }
-
-
-
-
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        }
-
-
-
-
-                                    }
-
-                                    @Override
-                                    public void failure(RetrofitError error) {
-
-                                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
-
-                                    }
-                                }
-
-                        );
+                        loggeofirebase(correo,password,view);
 
 
 
@@ -208,6 +114,11 @@ public class MainActivity extends AppCompatActivity  {
 
                 }
             });
+
+
+
+
+
 
 //Button Registrar
             bt2.setOnClickListener(new View.OnClickListener() {
@@ -237,6 +148,119 @@ public class MainActivity extends AppCompatActivity  {
 
         }
 
+
+
+
+
+
+
+    }
+
+
+
+
+    private void loggeobase(String correo,String password,View view){
+
+        RestAdapter adapter = new RestAdapter.Builder()
+                .setEndpoint(ROOT_URL)
+                .build();
+
+        ApiLogin api = adapter.create(ApiLogin.class);
+
+        api.loggear(
+                correo,
+                password,
+                new Callback<Response>() {
+                    @Override
+                    public void success(retrofit.client.Response result, Response response2) {
+
+
+                        BufferedReader reader = null;
+
+                        //String output = "";
+
+                        try {
+                            reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
+                            String output = reader.readLine();
+                            // Toast.makeText(MainActivity.this, output, Toast.LENGTH_LONG).show();
+
+
+                            String a =output.substring(0,1);
+                            String b=output.substring(1,output.length());
+
+                            if (a.equals("0")  || a.equals("1") ){
+                                savepreferences(a,b);
+                                Intent intent=new Intent(view.getContext(),Modulos.class);
+                                startActivityForResult(intent,0);
+                                finish();
+
+
+                            }else{
+
+                                Toast.makeText(MainActivity.this, "No está registrado", Toast.LENGTH_LONG).show();
+
+                            }
+
+
+
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
+
+
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+
+                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                }
+
+        );
+
+
+
+
+    }
+
+
+
+    private void loggeofirebase(String correo,String password,View view){
+
+       // Toast.makeText(MainActivity.this, "Firebase Check", Toast.LENGTH_LONG).show();
+        //Descomenta este codigo y colocacar dentro del if el login de la app
+
+        auth.signInWithEmailAndPassword(correo, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //Logica luego de loguearse
+                            Toast.makeText(MainActivity.this, "Bienvenido",Toast.LENGTH_SHORT).show();
+
+          /*                  savepreferences(correo,password);
+                            Intent intent=new Intent(view.getContext(),Modulos.class);
+                            startActivityForResult(intent,0);
+                            finish();
+*/
+
+                        } else {
+
+                            // If sign in fails, display a message to the user.
+                            Log.w("TAG", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "No se encuentra registrado.",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        // ...
+                    }
+                });
 
 
 
@@ -277,6 +301,22 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
+
+/*
+
+    public void updateUI(String email,String pass){
+
+        String correo=email.toString().trim().replace(" ","");;
+        String password=email.toString().trim().replace(" ","").toLowerCase();
+
+        if(!correo.isEmpty() && !password.isEmpty()){
+
+        }
+
+
+
+    }
+*/
 
 
 

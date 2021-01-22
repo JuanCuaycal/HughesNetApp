@@ -67,6 +67,8 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
         String phone= advisors.get(position).getPhone();
 
+        holder.txtReferidos.setText(advisors.get(position).getReferidos());
+        holder.txtVentas.setText(advisors.get(position).getVentas());
         holder.btnllamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +120,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
         CardView cardView;
          Button btnllamar;
-        TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient;
+        TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient,txtReferidos,txtVentas;
         ImageView foto;
 
 
@@ -136,6 +138,9 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
             txtActitud2= (TextView) itemView.findViewById(R.id.id_actitud21);
             txtAptitud2= (TextView) itemView.findViewById(R.id.id_aptitud31);
+
+            txtReferidos= (TextView) itemView.findViewById(R.id.id_referidos);
+            txtVentas= (TextView) itemView.findViewById(R.id.id_ventas);
 
             txtidclient= (TextView) itemView.findViewById(R.id.id_asesor_dni);
             btnllamar=itemView.findViewById(R.id.btn_llamar);
