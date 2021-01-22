@@ -17,6 +17,7 @@ import android.widget.Toast;
 //import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity  {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
 
     public static final int REQUEST_CODE=544543;
+
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        FirebaseApp.initializeApp(this);
         auth = FirebaseAuth.getInstance ();
 
 
@@ -90,11 +92,35 @@ public class MainActivity extends AppCompatActivity  {
 //Descomentar para que solo ingrese con cuentas de correo
                  //   if(correo.length()!=0 && password.length()!=0 && correovalidar(correo)){
                     if(correo.length()!=0 && password.length()!=0 ){
-                        loggeobase(correo,password,view);
-
-                        loggeofirebase(correo,password,view);
 
 
+
+                        auth.signInWithEmailAndPassword(correo, "Hnet45")
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+
+
+                                                   FirebaseUser user=auth.getCurrentUser();
+                                                   boolean a=user.isEmailVerified();
+                                                   if(a){
+
+
+                                                       loggeobase(correo,password,view);
+                                                   }else{
+
+                                                       Toast.makeText(MainActivity.this, "No has verificado tu email", Toast.LENGTH_SHORT).show();
+                                                   }
+
+
+                                        }
+                                        else {
+                                            Toast.makeText(MainActivity.this, task.getException().getMessage() , Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                });
 
 
                     }else{
@@ -230,44 +256,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-    private void loggeofirebase(String correo,String password,View view){
-
-       // Toast.makeText(MainActivity.this, "Firebase Check", Toast.LENGTH_LONG).show();
-        //Descomenta este codigo y colocacar dentro del if el login de la app
-
-        auth.signInWithEmailAndPassword(correo, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //Logica luego de loguearse
-                            Toast.makeText(MainActivity.this, "Bienvenido",Toast.LENGTH_SHORT).show();
-
-          /*                  savepreferences(correo,password);
-                            Intent intent=new Intent(view.getContext(),Modulos.class);
-                            startActivityForResult(intent,0);
-                            finish();
-*/
-
-                        } else {
-
-                            // If sign in fails, display a message to the user.
-                            Log.w("TAG", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "No se encuentra registrado.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-
-                        // ...
-                    }
-                });
-
-
-
-
-
-
-    }
 
     private void savepreferences(String a,String b) {
 

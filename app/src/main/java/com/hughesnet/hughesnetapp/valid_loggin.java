@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,12 +28,13 @@ import retrofit.client.Response;
 
 public class valid_loggin extends AppCompatActivity {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
+
     FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valid_loggin);
-        auth = FirebaseAuth.getInstance();
+
         EditText n=findViewById(R.id.id_name_registro);
         EditText a=findViewById(R.id.id_surname_registro);
         EditText t=findViewById(R.id.id_phone_registro);
@@ -46,7 +48,8 @@ public class valid_loggin extends AppCompatActivity {
 
         Button send=findViewById(R.id.btn_register_advisor);
 
-
+        FirebaseApp.initializeApp(this);
+        auth = FirebaseAuth.getInstance ();
 
 
 
@@ -101,9 +104,7 @@ public class valid_loggin extends AppCompatActivity {
                                 EnviarCorreo();
 
 
-                                Intent f = new Intent(valid_loggin.this, MainActivity.class);
-                                startActivity(f);
-                                finish();
+
                             }
 
 
@@ -218,87 +219,28 @@ public class valid_loggin extends AppCompatActivity {
         String co = c.getText().toString().trim();
         String p = c1.getText().toString().trim();
 
-
-        auth.createUserWithEmailAndPassword(co, p)
-
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "createUserWithEmail:success");
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                            user.sendEmailVerification();
-                            if (user.isEmailVerified())
-                            {
-                                // user is verified, so you can finish this activity or send user to activity which you want.
-                                finish();
-                                Toast.makeText(valid_loggin.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
-                            }
-                            else
-                            {
-                                // email is not verified, so just prompt the message to the user and restart this activity.
-                                // NOTE: don't forget to log out the user.
-                                Toast.makeText(valid_loggin.this, "NO Successfully logged in", Toast.LENGTH_SHORT).show();
-                                FirebaseAuth.getInstance().signOut();
-
-                                //restart this activity
-
-                            }
-
-
-                                Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
-
-
-
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(valid_loggin.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            // updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-
-
-/*        auth.createUserWithEmailAndPassword(co,p).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+       auth.createUserWithEmailAndPassword(co,"Hnet45").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(!task.isSuccessful()){
 
-                    Log.e("mal",task.toString());
-                    Log.e("mal",task.getResult().toString());
+                if(task.isSuccessful()){
 
+                    auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
-                    Toast.makeText(valid_loggin.this, "Mal", Toast.LENGTH_SHORT).show();
-                }else{
-                    try {
+                            if (task.isSuccessful()) {
 
+                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                finish();
 
+                                Toast.makeText(valid_loggin.this, "Verifique su email", Toast.LENGTH_SHORT).show();
 
-                        FirebaseUser user = auth.getCurrentUser();
-                        user.sendEmailVerification();
-
-                        Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
-                    }catch (Exception e){
-
-                        Toast.makeText(valid_loggin.this, "Ya se envio un correo a su direccion mail.", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                }
-
-            }
-        });
-
-
-    }*/
-
+                            }else{
+                                Toast.makeText(valid_loggin.this, task.getException().getMessage() , Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });}}});
 
     }
 
