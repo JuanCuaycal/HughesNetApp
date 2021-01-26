@@ -7,19 +7,136 @@
     tools:context=".Modulos"
     android:background="@drawable/skys">
 
-    <Button
-        android:id="@+id/id_exit2"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/button_exit"
-        android:text="USER"
-        android:textSize="14sp"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="200sp"
+        android:layout_height="150sp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/id_exit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/btn_estrat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2B2B2B"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Ventas"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_entrenam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="#2B2B2B"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Entrenamiento"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_Rancking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2B2B2B"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Ranking"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/id_exit2"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="#2B2B2B"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="USER"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="200sp"
+        android:layout_height="150sp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_Statictics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3C3F41"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Mis datos"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_cardAdvisor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3C3F41"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Asesores"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_moodle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3C3F41"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="Escuela"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/id_exit"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="#3C3F41"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="7"
+            android:shadowRadius="9"
+            android:text="EXIT"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/id_info"
@@ -31,6 +148,7 @@
         android:background="@drawable/button_exit"
         android:text="Info"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/id_exit" />
@@ -48,125 +166,51 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hugh" />
 
-    <Button
-        android:id="@+id/btn_moodle"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:background="@drawable/button_circle"
+        android:gravity="center"
         android:shadowColor="#000000"
         android:shadowDx="5"
         android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Escuela"
-        android:textAllCaps="true"
-        android:textSize="16sp"
+        android:shadowRadius="7"
+        android:text="Noticias HughesNet"
+        android:textColor="#FFF5F5"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
-        android:id="@+id/btn_estrat"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:background="@drawable/button_circle"
-        android:shadowColor="#000000"
-        android:shadowDx="5"
-        android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Ventas"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_moodle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView41"
+        app:srcCompat="@drawable/news" />
 
-    <Button
-        android:id="@+id/btn_entrenam"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:background="@drawable/button_circle"
-        android:shadowColor="#000000"
-
-        android:shadowDx="5"
-        android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Entrenamiento"
-        android:textSize="12sp"
-        android:textStyle="bold"
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="Equipo de Asesores Hughenes con aplicación Android "
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_estrat" />
-
-    <Button
-        android:id="@+id/btn_cardAdvisor"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:background="@drawable/button_circle"
-        android:shadowColor="#000000"
-        android:shadowDx="5"
-        android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Asesores"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_entrenam" />
-
-    <Button
-        android:id="@+id/btn_Statictics"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:background="@drawable/button_circle"
-        android:shadowColor="#000000"
-        android:shadowDx="5"
-        android:shadowDy="7"
-        android:shadowRadius="9"
-        android:text="Mis datos"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cardAdvisor" />
-
-    <Button
-        android:id="@+id/id_exit"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/button_exit"
-        android:text="EXIT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
 </androidx.constraintlayout.widget.ConstraintLayout>

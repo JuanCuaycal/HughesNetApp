@@ -33,6 +33,7 @@ public class Modulos extends AppCompatActivity {
         Button btn_exit=findViewById(R.id.id_exit);
         Button btn_profile=findViewById(R.id.id_exit2);
         Button btn_sta=findViewById(R.id.btn_Statictics);
+        Button btn_ranking=findViewById(R.id.btn_Rancking);
 
         Button btn_info=findViewById(R.id.id_info);
        // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
@@ -141,7 +142,14 @@ public class Modulos extends AppCompatActivity {
             }
         });
 
+        btn_ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(v.getContext(),StatusAdvisorActivity.class);
+                startActivityForResult(intent,0);
 
+            }
+        });
 
     }
 

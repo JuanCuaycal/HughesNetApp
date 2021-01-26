@@ -55,6 +55,63 @@ public class Advisor {
     @SerializedName("ventas")
     private String ventas;
 
+
+    @SerializedName("apertura")
+    private String apertura;
+
+    @SerializedName("indagacion")
+    private String indagacion;
+
+
+    @SerializedName("presentacion")
+    private String presentacion;
+
+    @SerializedName("objeciones")
+    private String objeciones;
+
+    @SerializedName("tecnicas")
+    private String tecnicas;
+
+    public String getApertura() {
+        return apertura;
+    }
+
+    public void setApertura(String apertura) {
+        this.apertura = apertura;
+    }
+
+    public String getIndagacion() {
+        return indagacion;
+    }
+
+    public void setIndagacion(String indagacion) {
+        this.indagacion = indagacion;
+    }
+
+    public String getPresentacion() {
+        return presentacion;
+    }
+
+    public void setPresentacion(String presentacion) {
+        this.presentacion = presentacion;
+    }
+
+    public String getObjeciones() {
+        return objeciones;
+    }
+
+    public void setObjeciones(String objeciones) {
+        this.objeciones = objeciones;
+    }
+
+    public String getTecnicas() {
+        return tecnicas;
+    }
+
+    public void setTecnicas(String tecnicas) {
+        this.tecnicas = tecnicas;
+    }
+
     public String getReferidos() {
         return referidos;
     }

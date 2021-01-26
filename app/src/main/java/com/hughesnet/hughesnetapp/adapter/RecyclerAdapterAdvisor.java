@@ -80,6 +80,13 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
         String phone=advisors.get(position).getPhone();
         String dniclient= advisors.get(position).getDni();
+        String nombrecompleto= advisors.get(position).getName()+" "+advisors.get(position).getSurname();
+
+        String txtApertura= advisors.get(position).getApertura();
+        String txtIndagacion= advisors.get(position).getIndagacion();
+        String txtPresentacion= advisors.get(position).getPresentacion();
+        String txtObjeciones= advisors.get(position).getObjeciones();
+        String txtTecnicas= advisors.get(position).getTecnicas();
 
 
         holder.btncheck.setOnClickListener(new View.OnClickListener() {
@@ -91,14 +98,16 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
 
                AlertDialog.Builder alert=new AlertDialog.Builder(v.getContext());
                 alert.setMessage(
-                        "Detalle de Aptitud"
-                        +" \n "+dniclient
-                                +" \n "+"APTITUD"
-                                +" \n "+"Apertura:"+"100%"
-                                +" \n "+"Apertura:"+"100%"
-                                +" \n "+"ACTITUD"
 
-                ).setTitle("Detalle de Asesor").setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                                " -Apertura:"+"\t"+txtApertura
+                                +" \n "+"-Indagación:   "+"\t"+txtIndagacion
+                                +" \n "+"-Presentación:   "+"\t"+txtPresentacion
+                                +" \n "+"-Objeciones:   "+"\t"+txtObjeciones
+                                +" \n "+"-Técnicas:   "+"\t"+txtTecnicas
+
+
+
+                ).setTitle("Detalle de Asesor "+nombrecompleto).setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(v.getContext(),"Aceptar",Toast.LENGTH_SHORT).show();;
@@ -204,6 +213,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
         CardView cardView;
          Button btnllamar,btnformulario,btncheck;
         TextView txtAptitud,txtActitud,txtPromedio,txtNameAdvisor,txtAptitud2,txtActitud2,txtidclient,txtReferidos,txtVentas;
+
         ImageView foto;
 
 
@@ -231,6 +241,8 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
             btnformulario=itemView.findViewById(R.id.id_button_formulario_row);
             btncheck=itemView.findViewById(R.id.id_button_checklist_row);
             foto= (ImageView) itemView.findViewById(R.id.imageView5);
+
+
 
 
         }
