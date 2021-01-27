@@ -21,19 +21,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hughesnet.hughesnetapp.ChangePassword;
 import com.hughesnet.hughesnetapp.Formulario;
-import com.hughesnet.hughesnetapp.MainActivity;
 import com.hughesnet.hughesnetapp.PopUp_DetalleAdv;
-import com.hughesnet.hughesnetapp.Profile;
 import com.hughesnet.hughesnetapp.R;
 import com.hughesnet.hughesnetapp.model.Advisor;
-import com.hughesnet.hughesnetapp.model.Asesor;
 
 import java.util.List;
 
 import static androidx.core.content.ContextCompat.startActivities;
-import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapterAdvisor.MyViewHolder> implements View.OnClickListener{
@@ -230,7 +225,7 @@ public class RecyclerAdapterAdvisor extends RecyclerView.Adapter<RecyclerAdapter
             txtAptitud= (TextView) itemView.findViewById(R.id.id_aptitud);
 
             txtActitud2= (TextView) itemView.findViewById(R.id.id_actitud21);
-            txtAptitud2= (TextView) itemView.findViewById(R.id.id_aptitud31);
+            txtAptitud2= (TextView) itemView.findViewById(R.id.id_notifica_fin);
 
             txtReferidos= (TextView) itemView.findViewById(R.id.id_referidos);
             txtVentas= (TextView) itemView.findViewById(R.id.id_ventas);

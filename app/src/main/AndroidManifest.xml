@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PopUp_DetalleAdv"></activity>
+        <activity android:name=".fragment_news"></activity>
+        <activity android:name=".PopUp_DetalleAdv" />
         <activity android:name=".Activity_graphics" />
         <activity android:name="GraphicsWeb.Activity_Graphics" />
         <activity android:name=".Datos" />

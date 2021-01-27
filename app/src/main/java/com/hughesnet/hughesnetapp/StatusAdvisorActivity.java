@@ -34,6 +34,7 @@ public class StatusAdvisorActivity extends AppCompatActivity {
     private List<Advisor> advisors;
     public  static String Ides;
 
+   // final String tipo = getIntent().getStringExtra(Modulos.tipos);
 
 
 

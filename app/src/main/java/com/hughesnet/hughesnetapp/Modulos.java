@@ -1,6 +1,9 @@
 package com.hughesnet.hughesnetapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,16 +11,52 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
+import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterAdvisor;
+import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterClient;
+import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterNews;
+import com.hughesnet.hughesnetapp.api.ApiAsesor;
+import com.hughesnet.hughesnetapp.api.ApiClient;
+import com.hughesnet.hughesnetapp.api.ApiNews;
+import com.hughesnet.hughesnetapp.model.Advisor;
+import com.hughesnet.hughesnetapp.model.News;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Modulos extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    private RecyclerAdapterNews adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ApiNews apiNews;
+    private List<News> noticias;
+    public  static String Ides,tipos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modulos);
 
+    /////////////////////////////////////////////////////////////////
 
+        init();
+
+
+
+
+
+
+
+
+
+        //////////////////////////////////////////////
 
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
         String passs=preferences.getString("pass","def");
@@ -154,6 +193,67 @@ public class Modulos extends AppCompatActivity {
     }
 
 
+
+    public void init(){
+
+
+
+        recyclerView= (RecyclerView) findViewById(R.id.NoticiasRecyclerView);
+        final GridLayoutManager gridLayoutManager= new GridLayoutManager(getApplicationContext(),1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        layoutManager = new GridLayoutManager(getApplicationContext(),1);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+
+        apiNews = ApiClient.getApiClient().create(ApiNews.class);
+        Call<List<News>> call = apiNews.getNews("http://trainingcomercial.com/HughesNetApp/news/news_change.php");
+
+        call.enqueue(new Callback<List<News>>() {
+            @Override
+            public void onResponse(Call<List<News>> call, Response<List<News>> response) {
+
+                if(response.body()!=null) {
+
+                     noticias=response.body();
+                     adapter=new RecyclerAdapterNews(noticias);
+                     adapter.notifyDataSetChanged();
+                     recyclerView.setAdapter(adapter);
+                    recyclerView.setHasFixedSize(true);
+                    adapter.notifyDataSetChanged();
+                    recyclerView.setNestedScrollingEnabled(false);
+
+
+                    if(noticias.isEmpty()){
+
+
+                        Toast.makeText(Modulos.this, "No hay noticias", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
+
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<News>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Algo salió mal",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
+
+    }
 
 
 }

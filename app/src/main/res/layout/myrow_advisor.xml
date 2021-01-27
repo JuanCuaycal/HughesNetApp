@@ -39,7 +39,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.864"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/id_titulo_fin"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/nivels" />
 
@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             <TextView
-                android:id="@+id/id_aptitud31"
+                android:id="@+id/id_notifica_fin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
@@ -97,11 +97,11 @@
                 android:textColor="#03A9F4"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView33"
+                app:layout_constraintStart_toEndOf="@+id/id_titulo_fin"
                 app:layout_constraintTop_toBottomOf="@+id/id_ventas" />
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/id_titulo_fin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -323,7 +323,7 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/id_titulo_fin"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
@@ -351,7 +351,7 @@
                 android:background="@drawable/form2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView33" />
+                app:layout_constraintTop_toBottomOf="@+id/id_titulo_fin" />
 
             <TextView
                 android:id="@+id/textView39"
