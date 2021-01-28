@@ -2,18 +2,27 @@ package com.hughesnet.hughesnetapp.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hughesnet.hughesnetapp.CambioEstado;
+import com.hughesnet.hughesnetapp.Formulario;
+import com.hughesnet.hughesnetapp.PopUp_DetalleAdv;
 import com.hughesnet.hughesnetapp.R;
+import com.hughesnet.hughesnetapp.StatusReferidosActivity;
 import com.hughesnet.hughesnetapp.model.Asesor;
 
 import java.util.List;
@@ -23,6 +32,7 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
 
     List<Asesor> asesores;
 
+    public  static String Estados;
     private View.OnClickListener listener;
     public RecyclerAdapterClient(List<Asesor> asesores) {
         this.asesores = asesores;
@@ -56,6 +66,41 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
        // Glide.with(holder.foto.getContext()).asBitmap().load("https://frutagolosa.com/FrutaGolosaApp/Administrador/images/" +ax+".jpg").transition(BitmapTransitionOptions.withCrossFade(1000)).diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true).transform(new CenterCrop(),new RoundedCorners(10)).apply(new RequestOptions().override(270,270)).into(holder.foto).waitForLayout();
 
 
+        holder.btn_maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(v.getContext(),"En Desarrollo",Toast.LENGTH_SHORT).show();;
+
+
+            }
+        });
+
+        holder.btn_llamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(v.getContext(),"En Desarrollo ",Toast.LENGTH_SHORT).show();;
+                String Phone=asesores.get(position).getPhone();
+
+
+              //  v.getContext().startActivity(new Intent(v.getContext().ACTION_CALL, Uri.parse("tel:"+Phone)));
+            }
+        });
+
+        holder.btn_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Toast.makeText(v.getContext(),"En Desarrollo Status",Toast.LENGTH_SHORT).show();;
+
+                String dniclient = asesores.get(position).getPhone();
+
+                v.getContext().startActivity(new Intent(v.getContext(),CambioEstado.class).putExtra(Estados,dniclient));
+
+
+            }
+        });
 
 
     }
@@ -82,6 +127,7 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
         TextView txtName,txtSurname,txtaddress,txtPhone,txtProvince,txtStatus;
         ImageView foto;
 
+        Button btn_maps,btn_status,btn_llamar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -98,8 +144,10 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
             txtStatus= (TextView) itemView.findViewById(R.id.id_estado);
 
 
-
-
+            ///BUTTONS
+             btn_maps=itemView.findViewById(R.id.button_maps_client);
+             btn_status=itemView.findViewById(R.id.button_status_client);
+             btn_llamar=itemView.findViewById(R.id.button_llamar_client);
 
 
         }

@@ -46,7 +46,7 @@ public class Modulos extends AppCompatActivity {
 
     /////////////////////////////////////////////////////////////////
 
-        init();
+        init_news();
 
 
 
@@ -75,7 +75,14 @@ public class Modulos extends AppCompatActivity {
         Button btn_ranking=findViewById(R.id.btn_Rancking);
 
         Button btn_info=findViewById(R.id.id_info);
-       // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
+        /////////////////////////////
+
+        Button btn_estrategia=findViewById(R.id.id_button_estrategia);
+        Button btn_planes=findViewById(R.id.id_button_planes);
+
+
+
+        // Toast.makeText(Modulos.this, types, Toast.LENGTH_LONG).show();
 
 
         if(types.equals("0")){
@@ -190,11 +197,39 @@ public class Modulos extends AppCompatActivity {
             }
         });
 
+
+        btn_estrategia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =new Intent(v.getContext(),Activity_Estrategia.class);
+                startActivityForResult(intent,0);
+
+            }
+        });
+
+        btn_planes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+           /*     Intent intent =new Intent(v.getContext(),Activity_Planes.class);
+                startActivityForResult(intent,0);*/
+
+
+                Intent intent =new Intent(v.getContext(),Activity_graphics.class);
+                startActivityForResult(intent,0);
+
+
+
+            }
+        });
+
+
+
     }
 
 
 
-    public void init(){
+    public void init_news(){
 
 
 

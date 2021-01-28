@@ -12,7 +12,7 @@
         android:id="@+id/id_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +27,7 @@
                 android:id="@+id/imageView6"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
+                android:visibility="gone"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/mapsblack"
                 tools:ignore="MissingConstraints"
@@ -43,6 +44,7 @@
                 android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Phone"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/id_estado" />
@@ -53,11 +55,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginLeft="45dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Apellido"
+                android:textColor="#000000"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/id_name" />
@@ -69,12 +74,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Nombre"
+                android:textColor="#000000"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -87,13 +94,12 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginEnd="45dp"
                 android:layout_marginRight="45dp"
-                android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="Address"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                app:layout_constraintTop_toBottomOf="@+id/id_province" />
 
             <TextView
                 android:id="@+id/id_province"
@@ -106,6 +112,7 @@
                 android:layout_marginRight="45dp"
                 android:gravity="center"
                 android:text="Province"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/id_phone" />
@@ -121,10 +128,50 @@
                 android:gravity="center"
                 android:text="Estado"
                 android:textColor="#00BCD4"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/id_surname" />
+
+            <Button
+                android:id="@+id/button_llamar_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_circle"
+                android:text="Llamar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_address" />
+
+            <Button
+                android:id="@+id/button_maps_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_circle"
+                android:text="Maps"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_address" />
+
+            <Button
+                android:id="@+id/button_status_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_circle"
+                android:text="Estado"
+                app:layout_constraintEnd_toStartOf="@+id/button_llamar_client"
+                app:layout_constraintStart_toEndOf="@+id/button_maps_client"
+                app:layout_constraintTop_toBottomOf="@+id/id_address" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

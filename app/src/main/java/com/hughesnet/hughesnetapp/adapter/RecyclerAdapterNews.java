@@ -3,6 +3,7 @@ package com.hughesnet.hughesnetapp.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.hughesnet.hughesnetapp.StatusReferidosActivity;
 import com.hughesnet.hughesnetapp.model.Asesor;
 import com.hughesnet.hughesnetapp.model.News;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class RecyclerAdapterNews extends RecyclerView.Adapter<RecyclerAdapterNews.MyViewHolder> implements View.OnClickListener {
@@ -62,6 +64,17 @@ public class RecyclerAdapterNews extends RecyclerView.Adapter<RecyclerAdapterNew
         holder.txtfecha.setText(noticias.get(position).getFecha());
         holder.txtTitle.setText(noticias.get(position).getTitle());
         holder.txtDescriptionsNews.setText(noticias.get(position).getDescription());
+/*
+      try {
+            String  text= new String(noticias.get(position).getDescription().getBytes("ISO-8859-1"), "UTF-8");
+            String encodedText = Html.fromHtml(text).toString();
+            holder.txtDescriptionsNews.setText(encodedText);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+*/
+
+
 
 
 

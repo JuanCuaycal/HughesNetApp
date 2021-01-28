@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.hughesnet.hughesnetapp.adapter.RecyclerAdapterClient;
@@ -58,6 +59,11 @@ public class StatusReferidosActivity extends AppCompatActivity {
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
 
+
+
+
+
+
         apiInterface = ApiClient.getApiClient().create(ApiAsesor.class);
         String estado=Estado;
         //Toast.makeText(getApplicationContext(),dni,Toast.LENGTH_LONG).show();
@@ -84,7 +90,8 @@ public class StatusReferidosActivity extends AppCompatActivity {
                         Toast.makeText(StatusReferidosActivity.this, "Status vacio", Toast.LENGTH_SHORT).show();
                     }
 
-                    adapter.setOnClickListener(new View.OnClickListener() {
+
+/*                    adapter.setOnClickListener(new View.OnClickListener() {
 
                         @Override
                         public void onClick(View view) {
@@ -101,7 +108,7 @@ public class StatusReferidosActivity extends AppCompatActivity {
                             startActivity(re);
 
                         }
-                    });
+                    });*/
 
                 }
 
@@ -116,5 +123,8 @@ public class StatusReferidosActivity extends AppCompatActivity {
 
 
         });
+
+
+
     }
 }
