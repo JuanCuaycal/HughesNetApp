@@ -18,6 +18,8 @@ public interface ApiInsertClient {
             @Field("address") String address,
             @Field("observation") String observation,
             @Field("status") String status,
+            @Field("cord") String cord,
+            @Field("ti") String ti,
             Callback<Response> callback
     );
 

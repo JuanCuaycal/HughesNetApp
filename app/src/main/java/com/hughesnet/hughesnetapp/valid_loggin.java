@@ -99,7 +99,6 @@ public class valid_loggin extends AppCompatActivity {
                             @Override
                             public void success(retrofit.client.Response result, Response response) {
 
-                                Toast.makeText(valid_loggin.this,"Registrado", Toast.LENGTH_SHORT).show();
                                 //Descomenta este codigo para enviar el correo de verificacion
                                 EnviarCorreo();
 
@@ -117,7 +116,7 @@ public class valid_loggin extends AppCompatActivity {
                         });
             }else{
 
-                Toast.makeText(valid_loggin.this, "La contraseña no coincide (6 DIGITOS)", Toast.LENGTH_LONG).show();
+                Toast.makeText(valid_loggin.this, "La contraseña no coincide (MINIMO 6 CARACTERES)", Toast.LENGTH_LONG).show();
                 c1.setText("");
                 c2.setText("");
             }
@@ -178,7 +177,7 @@ public class valid_loggin extends AppCompatActivity {
 
 
     public boolean validarcontrasena(String cadena) {
-        if (cadena.length()==6) {
+        if (cadena.length()>=6) {
             return true;
         } else {
             return false;

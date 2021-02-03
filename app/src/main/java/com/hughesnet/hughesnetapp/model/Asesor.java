@@ -33,6 +33,9 @@ public class Asesor {
     @SerializedName("observation")
     private String observation;
 
+    @SerializedName("cord")
+    private String cord;
+
 
 
     public String getId_client() {
@@ -93,6 +96,11 @@ public class Asesor {
 
     public String getStatus() {
         return status;
+    }
+
+
+    public String getCord() {
+        return cord;
     }
 
     public void setStatus(String status) {

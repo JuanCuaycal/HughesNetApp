@@ -70,7 +70,11 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(v.getContext(),"En Desarrollo",Toast.LENGTH_SHORT).show();;
+
+                String map = "http://maps.google.co.in/maps?q=" + asesores.get(position).getCord();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                v.getContext().startActivity(intent);
 
 
             }
@@ -79,9 +83,12 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
         holder.btn_llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(v.getContext(),"En Desarrollo ",Toast.LENGTH_SHORT).show();;
                 String Phone=asesores.get(position).getPhone();
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + Phone));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                v.getContext().startActivity(intent);
 
 
               //  v.getContext().startActivity(new Intent(v.getContext().ACTION_CALL, Uri.parse("tel:"+Phone)));

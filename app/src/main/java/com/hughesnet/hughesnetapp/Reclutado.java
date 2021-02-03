@@ -65,6 +65,7 @@ public class Reclutado extends AppCompatActivity {
         Spinner pr=findViewById(R.id.id_spinner_province_client);
         EditText ob=findViewById(R.id.id_observ_client);
         RadioGroup grcl=findViewById(R.id.id_radio_group_client);
+        Spinner tipes=findViewById(R.id.spinner);
 
 
         SharedPreferences preferences=getSharedPreferences("login", Context.MODE_PRIVATE);
@@ -82,10 +83,21 @@ public class Reclutado extends AppCompatActivity {
 
 
         spinner1=findViewById(R.id.id_spinner_province_client);
-        String[] ciudades={"Pichincha","Guayaquil","Cuenca","Esmeraldas","Santa Elena","Los Rios","El Oro","Santo Domingo","Cañar","El Carchi","Pastaza","Zamora","Otros"};
+        String[] ciudades={"Pichincha","Guayas","Esmeraldas","Manabi","Los Rios","Santa Elena","Santo Domingo","El Oro","Azuay","Bolivar","Cañar","Carchi"
+                ,"Cotopaxi","Chimborazo","Imbabura","Loja","Tungurahua","Morona Santiago","Napo","Orellana","Pastaza","Sucumbios","Zamora Chichipe"
+
+        };
 
         ArrayAdapter <String> adapter1= new ArrayAdapter<String>(this, R.layout.spinner_item_forma, ciudades);
         spinner1.setAdapter(adapter1);
+
+
+        String[] tipos={"Campo","Telefonico"
+
+        };
+
+        ArrayAdapter <String> adapter2= new ArrayAdapter<String>(this, R.layout.spinner_item_forma, tipos);
+        tipes.setAdapter(adapter2);
 
 
         locationStart();
@@ -101,6 +113,8 @@ public class Reclutado extends AppCompatActivity {
                 String address=mensaje2.getText().toString();
                 String observation=ob.getText().toString().trim().replace( " ","");
                 String id_advisor =dni;
+                String cord=mensaje3.getText().toString();
+                String ti=tipes.getSelectedItem().toString();
 
                    //Select seleccionar un elemento del grupo
 
@@ -118,7 +132,7 @@ public class Reclutado extends AppCompatActivity {
                 //Delete selection
                // grcl.clearCheck();
 
-
+                   if(name.length()>2&&surname.length()>2&&phone.length()>=9&&address.length()>3){
 
                 RestAdapter adapter=new RestAdapter.Builder()
                         .setEndpoint(ROOT_URL)
@@ -135,6 +149,8 @@ public class Reclutado extends AppCompatActivity {
                         address,
                         observation,
                         status,
+                        cord,
+                        ti,
                         new Callback<Response>() {
                             @Override
                             public void success(Response response, Response response2) {
@@ -162,7 +178,10 @@ public class Reclutado extends AppCompatActivity {
 
 
 
+                   }else{
 
+                       Toast.makeText(Reclutado.this, "Hay incongruencia de datos", Toast.LENGTH_SHORT).show();
+                   }
 
 
 
@@ -190,7 +209,7 @@ public class Reclutado extends AppCompatActivity {
         }
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
-        mensaje1.setText("Localización agregada");
+        mensaje1.setText("Cargando Localizacion");
         mensaje2.setText("");
     }
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -248,8 +267,8 @@ public class Reclutado extends AppCompatActivity {
             //editor.putString("jsonListaTareas", jsonListaTareas );
             //editor.apply();
             try {
-                JSONObject salida_json = object.put("ubicacion", Text);
-                mensaje3.setText(salida_json.toString());
+                JSONObject salida_json = object.put("Coordenadas actuales", Text);
+                mensaje3.setText(Text);
 
                // lista_ubicacion.add(salida_json.toString());
                // editor.putString("ub", salida_json.toString() );
