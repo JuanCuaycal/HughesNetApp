@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hughesnet.hughesnetapp.CambioEstado;
 import com.hughesnet.hughesnetapp.Formulario;
+import com.hughesnet.hughesnetapp.Modify_Client;
 import com.hughesnet.hughesnetapp.PopUp_DetalleAdv;
 import com.hughesnet.hughesnetapp.R;
 import com.hughesnet.hughesnetapp.StatusReferidosActivity;
@@ -103,7 +104,7 @@ public class RecyclerAdapterClient extends RecyclerView.Adapter<RecyclerAdapterC
 
                 String dniclient = asesores.get(position).getPhone();
 
-                v.getContext().startActivity(new Intent(v.getContext(),CambioEstado.class).putExtra(Estados,dniclient));
+                v.getContext().startActivity(new Intent(v.getContext(), CambioEstado.class).putExtra(Estados,dniclient));
 
 
             }

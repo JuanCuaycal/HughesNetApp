@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/button_circle"
-                android:text="Estado"
+                android:text="Modificar"
                 app:layout_constraintEnd_toStartOf="@+id/button_llamar_client"
                 app:layout_constraintStart_toEndOf="@+id/button_maps_client"
                 app:layout_constraintTop_toBottomOf="@+id/id_address" />

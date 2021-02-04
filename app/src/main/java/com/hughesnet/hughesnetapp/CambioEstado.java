@@ -21,7 +21,7 @@ import retrofit.client.Response;
 public class CambioEstado extends AppCompatActivity {
 
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp";
-
+    public  static String Phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,11 @@ public class CambioEstado extends AppCompatActivity {
 
         RadioGroup grcl=findViewById(R.id.id_radio_group_client_status);
         final String telefono = getIntent().getStringExtra(StatusReferidosActivity.Estados);
-
+        Phone=telefono;
 
         Button btn_cambio= findViewById(R.id.id_cambio_status);
+
+        Button btnModifcar= findViewById(R.id.id_cambio_status2);
 
 
         btn_cambio.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +75,17 @@ public class CambioEstado extends AppCompatActivity {
 
                 );
 
+
+
+            }
+        });
+
+
+        btnModifcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                view.getContext().startActivity(new Intent(view.getContext(),Modify_Client.class).putExtra(Phone,telefono));
 
 
             }

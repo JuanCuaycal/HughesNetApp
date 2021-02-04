@@ -354,7 +354,7 @@ imagenprofile.setOnClickListener(new View.OnClickListener() {
 
     public boolean correovalidar(String email) {
 
-        if(email.matches("[-\\w\\.]+@\\w+\\.\\w+")){
+        if(email.matches("[a-zA-Z0-9._-]+@[a-z]+\\\\.+[a-z]+")){
             return true;
         }else {
             return false;

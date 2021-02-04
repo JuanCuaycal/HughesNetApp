@@ -111,7 +111,7 @@ public class Reclutado extends AppCompatActivity {
                 String phone=p.getText().toString().trim().replace( " ","");
                 String province=pr.getSelectedItem().toString();
                 String address=mensaje2.getText().toString();
-                String observation=ob.getText().toString().trim().replace( " ","");
+                String observation=ob.getText().toString().trim();
                 String id_advisor =dni;
                 String cord=mensaje3.getText().toString();
                 String ti=tipes.getSelectedItem().toString();
