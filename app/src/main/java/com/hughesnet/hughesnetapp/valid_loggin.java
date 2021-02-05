@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hughesnet.hughesnetapp.api.ApiRegister;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.regex.Pattern;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -28,7 +34,7 @@ import retrofit.client.Response;
 
 public class valid_loggin extends AppCompatActivity {
     public static final String ROOT_URL="http://trainingcomercial.com/HughesNetApp/userlogin";
-
+  String error;
     FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +107,18 @@ public class valid_loggin extends AppCompatActivity {
 
                                 //Descomenta este codigo para enviar el correo de verificacion
                                 EnviarCorreo();
+                                BufferedReader reader = null;
 
+                                String output = "";
 
+                                try {
+                                    reader = new BufferedReader(new InputStreamReader(result.getBody().in()));
+
+                                    output = reader.readLine();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Toast.makeText(valid_loggin.this, output, Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -149,6 +165,9 @@ public class valid_loggin extends AppCompatActivity {
         String pas1=pass1.trim();
         String pas2=pass2.trim();
         if (!pas1.equals(pas2)){
+            Toast.makeText(this, "No coinciden", Toast.LENGTH_SHORT).show();
+            EditText c2=findViewById(R.id.id_verif_contrasena_registro);
+            c2.setError("No coincide");
             return false;
         } else {
             return true;
@@ -157,9 +176,13 @@ public class valid_loggin extends AppCompatActivity {
 
 
     public boolean validarnumero(String cadena) {
-        if (cadena.matches("[0-9]*") && cadena.length()==10) {
+        if (cadena.matches("[0-9]*") && cadena.length()==10){
+
             return true;
         } else {
+            Toast.makeText(this, "Numero celular no es de 10 digitos", Toast.LENGTH_SHORT).show();
+            EditText t=findViewById(R.id.id_phone_registro);
+            t.setError("No valido");
             return false;
         }
     }
@@ -168,8 +191,12 @@ public class valid_loggin extends AppCompatActivity {
 
     public boolean validardni(String cadena) {
         if (cadena.matches("[0-9]*") && cadena.length()==10) {
+
             return true;
         } else {
+            Toast.makeText(this, "Numero cedula no es de 10 digitos", Toast.LENGTH_SHORT).show();
+            EditText d=findViewById(R.id.id_dni_registro);
+            d.setError("10 digitos");
             return false;
         }
     }
@@ -180,6 +207,9 @@ public class valid_loggin extends AppCompatActivity {
         if (cadena.length()>=6) {
             return true;
         } else {
+            Toast.makeText(this, "Password no es mayor a 6 caracteres", Toast.LENGTH_SHORT).show();
+            EditText c1=findViewById(R.id.id_contrasena_register);
+            c1.setError("No valido");
             return false;
         }
     }
@@ -187,10 +217,17 @@ public class valid_loggin extends AppCompatActivity {
 
 
     public boolean correovalidar(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
 
-       if(email.matches("[a-zA-Z0-9._-]+@[a-z]+\\\\.+[a-z]+")){
+       if(pattern.matcher(email).matches()){
+
+
+
            return true;
        }else {
+           Toast.makeText(this, "No es un correo valido", Toast.LENGTH_SHORT).show();
+           EditText c=findViewById(R.id.id_email_registro);
+           c.setError("No valido");
            return false;
        }
 
@@ -202,6 +239,7 @@ public class valid_loggin extends AppCompatActivity {
     public boolean camposvacios(String campo) {
 
         if(campo.length()==0){
+            Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_SHORT).show();
             return true;
         }else {
             return false;
